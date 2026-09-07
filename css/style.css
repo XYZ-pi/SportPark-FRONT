@@ -535,3 +535,93 @@ html {
 #about {
     scroll-margin-top: 90px; /* отступ сверху, чтобы хэдер не перекрывал заголовок при переходе */
 }
+
+/* ============================================
+   ФУТЕР
+   ============================================ */
+.site-footer {
+    background-color: var(--red-dark);
+    padding: 60px 60px 0 60px;
+}
+
+.footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-logo {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 200px;
+    height: auto;
+}
+
+.footer-block {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-block h4 {
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.footer-block p {
+    color: #d8c9c4;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-block p i {
+    color: #e8776b;
+    width: 18px;
+    margin-top: 3px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons a {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.social-icons a:hover {
+    background-color: #e8776b;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    color: #b89e98;
+    font-size: 13px;
+}
+
+.footer-bottom span {
+    color: #e8776b;
+}
