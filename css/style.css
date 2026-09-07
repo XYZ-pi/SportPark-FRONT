@@ -41,7 +41,8 @@ body {
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(50, 10, 10, 0.55);
+    background: rgba(20, 5, 5, 0.35); /* лёгкое затемнение — чтобы белый текст точно читался поверх фото */
+    display: block;
 }
 
 .hero-content {
@@ -51,18 +52,19 @@ body {
 }
 
 .hero-logo {
-    width: 220px;
+    width: 320px;   /* было 220px */
     height: auto;
     display: block;
-    margin: 0 auto 25px auto;
+    margin: 0 auto 35px auto;
 }
 
 .hero-quote {
-    font-size: 22px;
+    font-size: 26px;   /* было 22px */
     font-style: italic;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     line-height: 1.5;
+    color: white;   /* явно закрепляем белый */
 }
 
 .scroll-hint {
