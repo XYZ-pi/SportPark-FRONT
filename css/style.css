@@ -341,7 +341,7 @@ body {
    ОСНОВНОЙ КОНТЕНТ ПОСЛЕ HERO
    ============================================ */
 .main-content {
-    padding: 80px 40px;
+    padding: 0;
     background-color: var(--cream);
     min-height: 100vh;
 }
@@ -349,4 +349,189 @@ body {
 .main-content h1 {
     color: var(--red-dark);
     margin-bottom: 15px;
+}
+
+/* ============================================
+   СЕКЦИЯ "О КЛУБЕ"
+   ============================================ */
+.about-intro,
+.about-columns,
+.about-features,
+.about-closing {
+    background-color: var(--red-dark);
+    color: var(--cream);
+    padding: 70px 60px;
+}
+
+.about-intro {
+    padding-bottom: 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.about-intro-center {
+    text-align: center;
+}
+
+.about-intro-center .about-text {
+    margin: 0 auto;
+}
+
+.section-title-center {
+    justify-content: center;
+}
+
+.title-bar {
+    display: inline-block;
+    width: 5px;
+    height: 30px;
+    background-color: var(--red-accent);
+}
+
+.brand-accent {
+    color: #e8776b;
+    font-weight: bold;
+}
+
+.about-text {
+    max-width: 950px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #ede2de;
+}
+
+/* Два блока: SportPark / Клуб */
+.about-columns {
+    display: flex;
+    gap: 40px;
+    background-color: var(--red-main);
+    flex-wrap: wrap;
+}
+
+.about-card {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-card-title {
+    color: #e8776b;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    line-height: 1.7;
+    color: #ecdcd7;
+    font-size: 16px;
+}
+
+/* Список услуг клуба */
+.features-grid {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.features-list {
+    flex: 1;
+    min-width: 300px;
+    list-style: none;
+}
+
+.features-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    color: #d8c9c4;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 14px;
+}
+
+.features-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: #e8776b;
+}
+
+/* Заключительный блок */
+.about-closing {
+    background-color: var(--red-main);
+}
+
+.closing-text p {
+    max-width: 900px;
+    line-height: 1.7;
+    color: #ecdcd7;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.closing-columns {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.closing-text {
+    flex: 1;
+    min-width: 320px;
+}
+
+.closing-tagline {
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #f3e6e2;
+    text-align: center;
+}
+
+.values-list {
+    list-style: none;
+    flex: 1;
+    min-width: 280px;
+    margin-top: 0;
+}
+
+.values-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    color: #ede2de;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 14px;
+}
+
+.values-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: #e8776b;
+}
+
+html {
+    scroll-behavior: smooth; /* плавный скролл вместо мгновенного прыжка */
+}
+
+#about {
+    scroll-margin-top: 90px; /* отступ сверху, чтобы хэдер не перекрывал заголовок при переходе */
 }
