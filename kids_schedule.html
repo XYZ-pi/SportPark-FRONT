@@ -60,80 +60,127 @@
 
 <!-- ===== ЛЕВОЕ ВЫЕЗЖАЮЩЕЕ МЕНЮ ===== -->
 <aside class="sidebar" id="sidebar">
-    <div class="logo-box">
-        <img src="img/logo_white_transparent.png" alt="SportPark">
-    </div>
-
-    <nav class="side-nav">
-        <div class="menu-item">
-            <button class="menu-toggle">
-                <span>Услуги</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="submenu">
-                <div class="submenu-inner">
-                    <a href="#">Бассейн</a>
-                    <a href="#">Фитнесс</a>
-                    <a href="#">Кроссфит</a>
-                    <a href="#">Настольный теннис</a>
-                    <a href="#">Сквош</a>
-                    <a href="#">Групповые программы</a>
-                    <a href="#">Персональный тренинг</a>
-                    <a href="#">Пилатес</a>
-                    <a href="#">Массаж</a>
-                </div>
-            </div>
+        <div class="logo-box">
+            <span class="logo-text">
+                <img src="img/logo_white_transparent.png" alt="SportPark">
+            </span>
         </div>
 
-        <div class="menu-item">
-            <button class="menu-toggle">
-                <span>Тренеры</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="submenu">
-                <div class="submenu-inner">
-                    <a href="trainers.html">Наша команда</a>
-                    <div class="menu-item nested">
-                        <button class="menu-toggle">
-                            <span>По направлениям</span>
-                            <span class="arrow">▶</span>
-                        </button>
-                        <div class="submenu">
-                            <div class="submenu-inner">
-                                <a href="#">Бассейн</a>
-                                <a href="#">Фитнес</a>
-                                <a href="#">Кроссфит</a>
-                                <a href="#">Настольный теннис</a>
-                                <a href="#">Сквош</a>
-                                <a href="#">Групповые программы</a>
-                                <a href="#">Персональный тренинг</a>
-                                <a href="#">Пилатес</a>
-                                <a href="#">Массаж</a>
-                            </div>
+        <nav class="side-nav">
+
+    <!-- УСЛУГИ -->
+    <div class="menu-item">
+
+        <button class="menu-toggle">
+            <span>Услуги</span>
+            <span class="arrow">▶</span>
+        </button>
+
+        <div class="submenu">
+            <div class="submenu-inner">
+
+                <!-- Все услуги -->
+                <a href="services.html">Наши услуги</a>
+
+                <!-- По направлениям -->
+                <div class="menu-item nested">
+
+                    <button class="menu-toggle">
+                        <span>По направлениям</span>
+                        <span class="arrow">▶</span>
+                    </button>
+
+                    <div class="submenu">
+                        <div class="submenu-inner">
+
+                            <a href="services.html#pool">Бассейн</a>
+                            <a href="services.html#fitness">Фитнес</a>
+                            <a href="services.html#crossfit">Кроссфит</a>
+                            <a href="services.html#tennis">Настольный теннис</a>
+                            <a href="services.html#squash">Сквош</a>
+                            <a href="services.html#group">Групповые программы</a>
+                            <a href="services.html#personal">Персональный тренинг</a>
+                            <a href="services.html#pilates">Пилатес</a>
+                            <a href="services.html#massage">Массаж</a>
+
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
 
-        <div class="menu-item">
-            <button class="menu-toggle">
-                <span>Расписание</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="submenu">
-                <div class="submenu-inner">
+    </div>
+
+
+    <!-- ТРЕНЕРЫ -->
+    <div class="menu-item">
+
+        <button class="menu-toggle">
+            <span>Тренеры</span>
+            <span class="arrow">▶</span>
+        </button>
+
+        <div class="submenu">
+            <div class="submenu-inner">
+
+                <!-- Все тренеры -->
+                <a href="trainers.html">Наша команда</a>
+
+                <!-- По направлениям -->
+                <div class="menu-item nested">
+
+                    <button class="menu-toggle">
+                        <span>По направлениям</span>
+                        <span class="arrow">▶</span>
+                    </button>
+
+                    <div class="submenu">
+                        <div class="submenu-inner">
+
+                            <a href="trainers.html#pool">Бассейн</a>
+                            <a href="trainers.html#fitness">Фитнес</a>
+                            <a href="trainers.html#crossfit">Кроссфит</a>
+                            <a href="trainers.html#tennis">Настольный теннис</a>
+                            <a href="trainers.html#squash">Сквош</a>
+                            <a href="trainers.html#group">Групповые программы</a>
+                            <a href="trainers.html#personal">Персональный тренинг</a>
+                            <a href="trainers.html#pilates">Пилатес</a>
+                            <a href="trainers.html#massage">Массаж</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+            <div class="menu-item">
+                <button class="menu-toggle">
+                    <span>Расписание</span>
+                    <span class="arrow">▶</span>
+                </button>
+                <div class="submenu">
+                    <div class="submenu-inner"> 
                     <a href="schedule.html">Групповое расписание</a>
                     <a href="kids_schedule.html">Детское расписание</a>
+                    </div>
+                    
                 </div>
             </div>
-        </div>
 
-        <div class="menu-item">
-            <a href="profile.html" class="menu-link-simple">Профиль</a>
-        </div>
-    </nav>
-</aside>
+            <div class="menu-item">
+                <a href="profile.html" class="menu-link-simple">Профиль</a>
+            </div>
+
+        </nav>
+    </aside>
 
 <main class="main-content">
         <section class="schedule-section">
@@ -156,137 +203,77 @@
     <!-- Понедельник -->
     <div class="day-panel active" id="day-mon">
         <ul class="class-list">
-            <li><span class="class-time">—:—</span><span class="class-name">Aqua Pilates</span><span class="class-hall">Бассейн</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">ABS & Bums <em>new</em></span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Make Body</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Dance Mix</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Crossfit Beginner</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Pilates</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Latino</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Body Pumping</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Squash</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Athletic Training <em>new</em></span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">STEP</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">CrossFit</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Aqua Pilates</span><span class="class-hall">Бассейн</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Fly Mix</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Crossfit</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Fly Mix</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">8 - 13 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">14 - 17 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">18:00  18:55</span><span class="class-name">Taekwondo</span><span class ="class-age">8 - 11 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
         </ul>
     </div>
  
     <!-- Вторник -->
     <div class="day-panel" id="day-tue">
         <ul class="class-list">
-            <li><span class="class-time">—:—</span><span class="class-name">Morning Mobility</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">TRX</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Fitball</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Flow Stretch</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Dance Mix</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Dance Beginner</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Brazilian Butt</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Flex Body</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Kickboxing</span><span class ="class-age">12 - 16 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Taekwondo</span><span class ="class-age">10 - 16 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">8 - 13 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">14 - 17 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">18:00  18:55</span><span class="class-name">Taekwondo</span><span class ="class-age">4 - 7 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
         </ul>
     </div>
  
     <!-- Среда -->
     <div class="day-panel" id="day-wed">
         <ul class="class-list">
-            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Squash Beginner</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Spin & Fit</span><span class="class-hall">Cycling</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">High Heels</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Brazilian Butt</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Deep Core</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Booty Power</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Athletic Training <em>new</em></span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Squash Beginner</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Make Body</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Spin & Fit</span><span class="class-hall">Cycling</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Stretching</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Fly Mix</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Crossfit</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Fly Mix</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">8 - 13 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">14 - 17 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">18:00  18:55</span><span class="class-name">Taekwondo</span><span class ="class-age">8 - 11 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
         </ul>
     </div>
  
     <!-- Четверг -->
     <div class="day-panel" id="day-thu">
         <ul class="class-list">
-            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Power Bands</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Flow Stretch</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Dance Mix</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Dance Beginner</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Deep Core</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">ABS Sculpt</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Zumba</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Fly Yoga</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Kickboxing</span><span class ="class-age">12 - 16 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Taekwondo</span><span class ="class-age">10 - 16 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">8 - 13 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">14 - 17 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">18:00  18:55</span><span class="class-name">Taekwondo</span><span class ="class-age">4 - 7 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
         </ul>
     </div>
  
     <!-- Пятница -->
     <div class="day-panel" id="day-fri">
         <ul class="class-list">
-            <li><span class="class-time">—:—</span><span class="class-name">Morning Mobility</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Spin & Fit</span><span class="class-hall">Cycling</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Zumba</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Body Pumping</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Athletic Training <em>new</em></span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Fitball</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Body Reset</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Fly Mix</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">16:00  16:55</span><span class="class-name">Crossfit</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Fly Mix</span><span class ="class-age">10 - 14 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">8 - 13 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">17:00  17:55</span><span class="class-name">Crossfit</span><span class ="class-age">14 - 17 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">18:00  18:55</span><span class="class-name">Taekwondo</span><span class ="class-age">8 - 11 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
         </ul>
     </div>
  
     <!-- Суббота -->
     <div class="day-panel" id="day-sat">
         <ul class="class-list">
-            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Body Pumping</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Fly Yoga</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Body Reset</span><span class="class-hall">Intense</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Squash Beginner</span><span class="class-hall">Squash</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">10:00  10:55</span><span class="class-name">Taekwondo</span><span class ="class-age">4 - 7 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">11:00  11:55</span><span class="class-name">Brazilian Jiu-Jitsu</span><span class ="class-age">8 - 12 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">12:00  12:55</span><span class="class-name">Taekwondo</span><span class ="class-age">10 - 16 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
+            <li><span class="class-time">13:00  13:55</span><span class="class-name">Crossfit</span><span class ="class-age">14 - 17 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+            <li><span class="class-time">13:00  13:55</span><span class="class-name">Crossfit</span><span class ="class-age">8 - 13 лет</span><span class="class-hall">Спортзал "Crossfit"</span></li>
+
         </ul>
     </div>
  
     <!-- Воскресенье -->
     <div class="day-panel" id="day-sun">
         <ul class="class-list">
-            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">ABSolution</span><span class="class-hall">Tonus</span></li>
-            <li><span class="class-time">—:—</span><span class="class-name">Stretching</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">11:00  11:55</span><span class="class-name">Brazilian Jiu-Jitsu</span><span class ="class-age">8 - 12 лет</span><span class="class-hall">Спортзал "Dynamic"</span></li>
         </ul>
     </div>
  
@@ -295,28 +282,9 @@
 <!-- ===== ОПИСАНИЕ ПРОГРАММ ПО КАТЕГОРИЯМ ===== -->
 <section class="programs-section">
     <h2 class="section-title section-title-center"><span class="title-bar"></span>Описание программ</h2>
-    <p class="about-text" style="margin-bottom: 10px;">
-        Интенсивность: <strong>*</strong> низкая &nbsp;·&nbsp; <strong>**</strong> средняя &nbsp;·&nbsp; <strong>***</strong> высокая
-    </p>
+    
  
     <div class="category-list">
- 
-        <div class="category-item">
-            <button class="category-toggle">
-                <span>Aerobics Class</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="category-panel">
-                <div class="category-panel-inner">
-                    <p><strong>STEP</strong> — кардиотренировка на степ-платформе: движение, ритм и функциональные упражнения для укрепления мышц и сжигания калорий.</p>
-                    <p><strong>FITBALL</strong> — тренировка с фитболом на укрепление всего тела, координацию и баланс.</p>
-                    <p><strong>CYCLING</strong> — кардио на велотренажёре по программе Technogym, развитие выносливости и сердечно-сосудистой системы.</p>
-                    <p><strong>TOTAL BODY FIT</strong> — силовые и кардиоупражнения для всего тела, укрепление мышц и сжигание калорий.</p>
-                    <p><strong>SPIN & FIT</strong> — велотренажёр в сочетании с силовыми упражнениями, выносливость и общая форма.</p>
-                    <p><strong>POWER BANDS</strong> — силовые и кардиоупражнения с эластичными лентами, коррекция фигуры.</p>
-                </div>
-            </div>
-        </div>
  
         <div class="category-item">
             <button class="category-toggle">
@@ -326,12 +294,7 @@
             <div class="category-panel">
                 <div class="category-panel-inner">
                     <p><strong>CROSSFIT</strong> — функциональные упражнения и работа со спецоборудованием: сила, выносливость, скорость, координация.</p>
-                    <p><strong>CROSSFIT BEGINNER</strong> — базовый уровень: приседания, отжимания, подтягивания, скакалка.</p>
-                    <p><strong>TRX</strong> — подвесная система и собственный вес тела: сила, баланс, координация.</p>
-                    <p><strong>SQUASH</strong> — динамичная игра для выносливости, реакции и стратегического мышления.</p>
-                    <p><strong>SQUASH BEGINNER</strong> — базовая техника игры для новичков, координация и скорость реакции.</p>
-                    <p><strong>ATHLETIC TRAINING</strong> — зональный кросс-тренинг: силовые + кардио-интервалы, атлетичное тело.</p>
-                    <p><strong>НАСТОЛЬНЫЙ ТЕННИС</strong> — реакция, координация и концентрация, подходит для любого возраста.</p>
+                    <p><strong>FLY MIX</strong> — комплексная фитнес-тренировка с использованием подвесного гамака, сочетающая элементы силовой подкачки, йоги и упражнений на растяжку.</p>                   
                 </div>
             </div>
         </div>
@@ -344,74 +307,9 @@
             <div class="category-panel">
                 <div class="category-panel-inner">
                     <p><strong>KICKBOXING</strong> — элементы бокса, муай-тай и карате: сила, выносливость, координация, уверенность в себе.</p>
-                </div>
-            </div>
-        </div>
- 
-        <div class="category-item">
-            <button class="category-toggle">
-                <span>Dance Class</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="category-panel">
-                <div class="category-panel-inner">
-                    <p><strong>HIGH HEELS</strong> — танец на каблуках: координация, баланс, гибкость, грация.</p>
-                    <p><strong>DANCE BEGINNER</strong> — основы танца для начинающих в лёгкой атмосфере.</p>
-                    <p><strong>DANCE MIX</strong> — сочетание современных танцевальных направлений, энергия и ритм.</p>
-                    <p><strong>LATINO</strong> — латиноамериканские танцы: динамика, гибкость, выносливость.</p>
-                    <p><strong>ZUMBA</strong> — танцевальная фитнес-вечеринка под латино-хиты: калории и настроение.</p>
-                </div>
-            </div>
-        </div>
- 
-        <div class="category-item">
-            <button class="category-toggle">
-                <span>Power Class</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="category-panel">
-                <div class="category-panel-inner">
-                    <p><strong>ABSOLUTION</strong> — верх тела: плечи, спина, руки, пресс, осанка.</p>
-                    <p><strong>ABS & BUMS</strong> — живот, ягодицы и ноги, тонус и силуэт.</p>
-                    <p><strong>BRAZILIAN BUTT</strong> — ягодицы и ноги с отягощениями.</p>
-                    <p><strong>BODY PUMPING</strong> — штанга и диски, все группы мышц.</p>
-                    <p><strong>BOOTY POWER</strong> — ягодицы и ноги со степ-платформой и весом.</p>
-                    <p><strong>ABS SCULPT</strong> — пресс и поясница, статическая нагрузка.</p>
-                    <p><strong>MAKE BODY</strong> — все группы мышц, коррекция фигуры.</p>
-                </div>
-            </div>
-        </div>
- 
-        <div class="category-item">
-            <button class="category-toggle">
-                <span>Body & Mind</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="category-panel">
-                <div class="category-panel-inner">
-                    <p><strong>PILATES</strong> — контроль движений, дыхание, осанка, гибкость и баланс.</p>
-                    <p><strong>YOGA</strong> — позы, дыхание, релаксация, подвижность суставов.</p>
-                    <p><strong>FLY YOGA</strong> — йога в гамаках с элементами акробатики.</p>
-                    <p><strong>STRETCHING</strong> — развитие гибкости и подвижности суставов.</p>
-                    <p><strong>PILATES PROPS</strong> — пилатес с аксессуарами: гибкость, баланс, сила.</p>
-                    <p><strong>FLEX BODY</strong> — миофасциальное расслабление, мобилизация суставов, растяжка.</p>
-                    <p><strong>MORNING MOBILITY</strong> — низкая интенсивность, здоровье позвоночника.</p>
-                    <p><strong>FLOW STRETCH</strong> — мягкая тренировка на подвижность и контроль тела.</p>
-                    <p><strong>BODY RESET</strong> — растяжка, самомассаж, йога и релаксация.</p>
-                    <p><strong>DEEP CORE</strong> — глубокие мышцы кора, стабилизация позвоночника.</p>
-                </div>
-            </div>
-        </div>
- 
-        <div class="category-item">
-            <button class="category-toggle">
-                <span>Water Class</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="category-panel">
-                <div class="category-panel-inner">
-                    <p><strong>AQUA FIT</strong> — кардио и силовые упражнения в воде со спецоборудованием, без нагрузки на суставы.</p>
-                    <p><strong>AQUA PILATES</strong> — пилатес в воде: подвижность, баланс, мышцы-стабилизаторы.</p>
+                    <p><strong>TAEKWONDO</strong> — динамичное боевое искусство, развивающее скорость, точность движений и дисциплину.</p>
+                    <p><strong>BRAZILIAN JIU-JITSU</strong> — единоборство, основанное на технике, гибкости и умении контролировать движения соперника.</p>
+
                 </div>
             </div>
         </div>

@@ -60,80 +60,127 @@
 
 <!-- ===== ЛЕВОЕ ВЫЕЗЖАЮЩЕЕ МЕНЮ ===== -->
 <aside class="sidebar" id="sidebar">
-    <div class="logo-box">
-        <img src="img/logo_white_transparent.png" alt="SportPark">
-    </div>
-
-    <nav class="side-nav">
-        <div class="menu-item">
-            <button class="menu-toggle">
-                <span>Услуги</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="submenu">
-                <div class="submenu-inner">
-                    <a href="#">Бассейн</a>
-                    <a href="#">Фитнесс</a>
-                    <a href="#">Кроссфит</a>
-                    <a href="#">Настольный теннис</a>
-                    <a href="#">Сквош</a>
-                    <a href="#">Групповые программы</a>
-                    <a href="#">Персональный тренинг</a>
-                    <a href="#">Пилатес</a>
-                    <a href="#">Массаж</a>
-                </div>
-            </div>
+        <div class="logo-box">
+            <span class="logo-text">
+                <img src="img/logo_white_transparent.png" alt="SportPark">
+            </span>
         </div>
 
-        <div class="menu-item">
-            <button class="menu-toggle">
-                <span>Тренеры</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="submenu">
-                <div class="submenu-inner">
-                    <a href="trainers.html">Наша команда</a>
-                    <div class="menu-item nested">
-                        <button class="menu-toggle">
-                            <span>По направлениям</span>
-                            <span class="arrow">▶</span>
-                        </button>
-                        <div class="submenu">
-                            <div class="submenu-inner">
-                                <a href="#">Бассейн</a>
-                                <a href="#">Фитнес</a>
-                                <a href="#">Кроссфит</a>
-                                <a href="#">Настольный теннис</a>
-                                <a href="#">Сквош</a>
-                                <a href="#">Групповые программы</a>
-                                <a href="#">Персональный тренинг</a>
-                                <a href="#">Пилатес</a>
-                                <a href="#">Массаж</a>
-                            </div>
+        <nav class="side-nav">
+
+    <!-- УСЛУГИ -->
+    <div class="menu-item">
+
+        <button class="menu-toggle">
+            <span>Услуги</span>
+            <span class="arrow">▶</span>
+        </button>
+
+        <div class="submenu">
+            <div class="submenu-inner">
+
+                <!-- Все услуги -->
+                <a href="services.html">Наши услуги</a>
+
+                <!-- По направлениям -->
+                <div class="menu-item nested">
+
+                    <button class="menu-toggle">
+                        <span>По направлениям</span>
+                        <span class="arrow">▶</span>
+                    </button>
+
+                    <div class="submenu">
+                        <div class="submenu-inner">
+
+                            <a href="services.html#pool">Бассейн</a>
+                            <a href="services.html#fitness">Фитнес</a>
+                            <a href="services.html#crossfit">Кроссфит</a>
+                            <a href="services.html#tennis">Настольный теннис</a>
+                            <a href="services.html#squash">Сквош</a>
+                            <a href="services.html#group">Групповые программы</a>
+                            <a href="services.html#personal">Персональный тренинг</a>
+                            <a href="services.html#pilates">Пилатес</a>
+                            <a href="services.html#massage">Массаж</a>
+
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
 
-        <div class="menu-item">
-            <button class="menu-toggle">
-                <span>Расписание</span>
-                <span class="arrow">▶</span>
-            </button>
-            <div class="submenu">
-                <div class="submenu-inner">
+    </div>
+
+
+    <!-- ТРЕНЕРЫ -->
+    <div class="menu-item">
+
+        <button class="menu-toggle">
+            <span>Тренеры</span>
+            <span class="arrow">▶</span>
+        </button>
+
+        <div class="submenu">
+            <div class="submenu-inner">
+
+                <!-- Все тренеры -->
+                <a href="trainers.html">Наша команда</a>
+
+                <!-- По направлениям -->
+                <div class="menu-item nested">
+
+                    <button class="menu-toggle">
+                        <span>По направлениям</span>
+                        <span class="arrow">▶</span>
+                    </button>
+
+                    <div class="submenu">
+                        <div class="submenu-inner">
+
+                            <a href="trainers.html#pool">Бассейн</a>
+                            <a href="trainers.html#fitness">Фитнес</a>
+                            <a href="trainers.html#crossfit">Кроссфит</a>
+                            <a href="trainers.html#tennis">Настольный теннис</a>
+                            <a href="trainers.html#squash">Сквош</a>
+                            <a href="trainers.html#group">Групповые программы</a>
+                            <a href="trainers.html#personal">Персональный тренинг</a>
+                            <a href="trainers.html#pilates">Пилатес</a>
+                            <a href="trainers.html#massage">Массаж</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+            <div class="menu-item">
+                <button class="menu-toggle">
+                    <span>Расписание</span>
+                    <span class="arrow">▶</span>
+                </button>
+                <div class="submenu">
+                    <div class="submenu-inner"> 
                     <a href="schedule.html">Групповое расписание</a>
                     <a href="kids_schedule.html">Детское расписание</a>
+                    </div>
+                    
                 </div>
             </div>
-        </div>
 
-        <div class="menu-item">
-            <a href="profile.html" class="menu-link-simple">Профиль</a>
-        </div>
-    </nav>
-</aside>
+            <div class="menu-item">
+                <a href="profile.html" class="menu-link-simple">Профиль</a>
+            </div>
+
+        </nav>
+    </aside>
 
 <main class="main-content">
         <section class="schedule-section">
