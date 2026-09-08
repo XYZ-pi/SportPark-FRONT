@@ -23,6 +23,7 @@
     </section>
 
     <!-- ===== ХЭДЕР (появляется при скролле) ===== -->
+     
     <header class="topbar" id="topbar">
         <button class="burger" id="burger">
             <span></span>
@@ -35,19 +36,36 @@
         </span>
 
         <nav class="top-nav">
-            <a href="#about">О клубе</a>
-            <a href="#"></a>
+    <a href="#about">О клубе</a>
+    <a href="contacts.html">Контакты</a>
+</nav>
 
-            <a href="#">Контакты</a>
-        </nav>
+<nav class="top-nav">
+    <div class="dropdown">
+        <button class="dropdown-toggle">
+            <span>Язык</span>
+            <span class="dropdown-arrow">▶</span>
+        </button>
+        <div class="dropdown-menu">
+            <a href="#" class="lang-ru">Русский</a>
+            <a href="#" class="lang-ro">Română</a>
+        </div>
+    </div>
 
-        <nav class="top-nav">
-            <a href="#">Язык</a>
-            <a href="#"></a>
-            <a href="#">Соц. сети</a>
-        </nav>
+    <div class="dropdown">
+        <button class="dropdown-toggle">
+            <span>Соц. сети</span>
+            <span class="dropdown-arrow">▶</span>
+        </button>
+        <div class="dropdown-menu">
+            <a href="https://www.facebook.com/sportpark.md" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/sportpark.md/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@sportpark1626" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+    </div>
+</nav>
 
-        <button class="login-btn">Вход</button>
+<a href="login.html" class="login-btn">Вход</a>
     </header>
 
     <!-- ===== ЗАТЕМНЕНИЕ ФОНА (для сайдбара) ===== -->
@@ -163,8 +181,8 @@
                 </button>
                 <div class="submenu">
                     <div class="submenu-inner"> 
-                    <a href="schedule.html">Общее расписание</a>
-                    <a href="#">Мои записи</a>
+                    <a href="schedule.html">Групповое расписание</a>
+                    <a href="kids_schedule.html">Детское расписание</a>
                     </div>
                     
                 </div>

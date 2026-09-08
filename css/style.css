@@ -7,6 +7,7 @@
 
 body {
     overflow-x: hidden;
+    background-color: var(--red-dark);
 }
 
 /* ============================================
@@ -341,9 +342,9 @@ body {
    ОСНОВНОЙ КОНТЕНТ ПОСЛЕ HERO
    ============================================ */
 .main-content {
-    padding: 0;
-    background-color: var(--cream);
-    min-height: 100vh;
+    padding-top: 60px;
+    /* background-color: var(--cream); */
+    /* min-height: 100vh; */
 }
 
 .main-content h1 {
@@ -624,4 +625,236 @@ html {
 
 .footer-bottom span {
     color: #e8776b;
+}
+
+/* ============================================
+   ВЫПАДАЮЩИЕ МЕНЮ В ХЭДЕРЕ (Язык / Соц. сети)
+   ============================================ */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    padding: 0;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    transition: transform 0.2s ease;
+}
+
+.dropdown.open .dropdown-arrow {
+    transform: rotate(90deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 14px;
+    background-color: var(--red-dark);
+    min-width: 170px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 500;
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(255,255,255,0.08);
+}
+
+/* login-btn теперь ссылка <a>, а не <button> — добавляем эти два свойства */
+.login-btn {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ============================================
+   ВКЛАДКИ ДНЕЙ НЕДЕЛИ + СПИСОК ЗАНЯТИЙ
+   ============================================ */
+.schedule-section,
+.programs-section {
+    background-color: var(--red-dark);
+    padding: 70px 60px;
+}
+
+.programs-section {
+    background-color: var(--red-main);
+}
+
+.day-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.day-tab {
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.day-tab:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+.day-tab.active {
+    background-color: #e8776b;
+    font-weight: bold;
+}
+
+.day-panel {
+    display: none;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.day-panel.active {
+    display: block;
+}
+
+.class-list {
+    list-style: none;
+}
+
+.class-list li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: #ede2de;
+    font-size: 15px;
+}
+
+.class-time {
+    width: 60px;
+    color: #e8776b;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.class-name {
+    flex: 1;
+}
+
+.class-name em {
+    color: #e8776b;
+    font-style: normal;
+    font-size: 12px;
+    margin-left: 6px;
+    border: 1px solid #e8776b;
+    padding: 1px 6px;
+    border-radius: 3px;
+}
+
+.class-hall {
+    color: #b89e98;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+/* Категории программ (аккордеон) */
+.category-list {
+    max-width: 900px;
+    margin: 20px auto 0 auto;
+}
+
+.category-item {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.category-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    padding: 18px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: inherit;
+}
+
+.category-toggle:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.category-toggle .arrow {
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    color: #e8776b;
+}
+
+.category-toggle.active .arrow {
+    transform: rotate(90deg);
+}
+
+.category-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.category-panel.open {
+    grid-template-rows: 1fr;
+}
+
+.category-panel-inner {
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.category-panel-inner p {
+    color: #ede2de;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.category-panel-inner p strong {
+    color: #e8776b;
+}
+
+.about-text {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }

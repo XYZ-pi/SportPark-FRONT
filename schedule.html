@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportPark — Спортивный клуб</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- ===== ХЭДЕР (появляется при скролле) ===== -->
+     
+    <header class="topbar visible" id="topbar">
+    <button class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <span class="topbar-logo">
+        <img src="img/logo_white_transparent.png" alt="SportPark">
+    </span>
+
+    <nav class="top-nav">
+        <a href="index.html#about">О клубе</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+
+    <nav class="top-nav">
+        <div class="dropdown">
+            <button class="dropdown-toggle">
+                <span>Язык</span>
+                <span class="dropdown-arrow">▶</span>
+            </button>
+            <div class="dropdown-menu">
+                <a href="#" class="lang-ru">Русский</a>
+                <a href="#" class="lang-ro">Română</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-toggle">
+                <span>Соц. сети</span>
+                <span class="dropdown-arrow">▶</span>
+            </button>
+            <div class="dropdown-menu">
+                <a href="https://www.facebook.com/sportpark.md" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                <a href="https://www.instagram.com/sportpark.md/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://www.youtube.com/@sportpark1626" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            </div>
+        </div>
+    </nav>
+
+    <a href="login.html" class="login-btn">Вход</a>
+</header>
+
+<!-- ===== ЗАТЕМНЕНИЕ ФОНА (для сайдбара) ===== -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== ЛЕВОЕ ВЫЕЗЖАЮЩЕЕ МЕНЮ ===== -->
+<aside class="sidebar" id="sidebar">
+    <div class="logo-box">
+        <img src="img/logo_white_transparent.png" alt="SportPark">
+    </div>
+
+    <nav class="side-nav">
+        <div class="menu-item">
+            <button class="menu-toggle">
+                <span>Услуги</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="submenu">
+                <div class="submenu-inner">
+                    <a href="#">Бассейн</a>
+                    <a href="#">Фитнесс</a>
+                    <a href="#">Кроссфит</a>
+                    <a href="#">Настольный теннис</a>
+                    <a href="#">Сквош</a>
+                    <a href="#">Групповые программы</a>
+                    <a href="#">Персональный тренинг</a>
+                    <a href="#">Пилатес</a>
+                    <a href="#">Массаж</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <button class="menu-toggle">
+                <span>Тренеры</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="submenu">
+                <div class="submenu-inner">
+                    <a href="trainers.html">Наша команда</a>
+                    <div class="menu-item nested">
+                        <button class="menu-toggle">
+                            <span>По направлениям</span>
+                            <span class="arrow">▶</span>
+                        </button>
+                        <div class="submenu">
+                            <div class="submenu-inner">
+                                <a href="#">Бассейн</a>
+                                <a href="#">Фитнес</a>
+                                <a href="#">Кроссфит</a>
+                                <a href="#">Настольный теннис</a>
+                                <a href="#">Сквош</a>
+                                <a href="#">Групповые программы</a>
+                                <a href="#">Персональный тренинг</a>
+                                <a href="#">Пилатес</a>
+                                <a href="#">Массаж</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <button class="menu-toggle">
+                <span>Расписание</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="submenu">
+                <div class="submenu-inner">
+                    <a href="schedule.html">Групповое расписание</a>
+                    <a href="kids_schedule.html">Детское расписание</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <a href="profile.html" class="menu-link-simple">Профиль</a>
+        </div>
+    </nav>
+</aside>
+
+<main class="main-content">
+        <section class="schedule-section">
+    <h2 class="section-title section-title-center"><span class="title-bar"></span>Расписание групповых программ</h2>
+    <p class="about-text">
+        Выберите день недели, чтобы увидеть список занятий. Точное время каждого занятия уточняется на ресепшене клуба.
+    </p>
+ 
+    <!-- Вкладки дней недели -->
+    <div class="day-tabs">
+        <button class="day-tab active" data-day="mon">Пн</button>
+        <button class="day-tab" data-day="tue">Вт</button>
+        <button class="day-tab" data-day="wed">Ср</button>
+        <button class="day-tab" data-day="thu">Чт</button>
+        <button class="day-tab" data-day="fri">Пт</button>
+        <button class="day-tab" data-day="sat">Сб</button>
+        <button class="day-tab" data-day="sun">Вс</button>
+    </div>
+ 
+    <!-- Понедельник -->
+    <div class="day-panel active" id="day-mon">
+        <ul class="class-list">
+            <li><span class="class-time">—:—</span><span class="class-name">Aqua Pilates</span><span class="class-hall">Бассейн</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">ABS & Bums <em>new</em></span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Make Body</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Dance Mix</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Crossfit Beginner</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Pilates</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Latino</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Body Pumping</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Squash</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Athletic Training <em>new</em></span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">STEP</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">CrossFit</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Aqua Pilates</span><span class="class-hall">Бассейн</span></li>
+        </ul>
+    </div>
+ 
+    <!-- Вторник -->
+    <div class="day-panel" id="day-tue">
+        <ul class="class-list">
+            <li><span class="class-time">—:—</span><span class="class-name">Morning Mobility</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">TRX</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Fitball</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Flow Stretch</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Dance Mix</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Dance Beginner</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Brazilian Butt</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Flex Body</span><span class="class-hall">Intense</span></li>
+        </ul>
+    </div>
+ 
+    <!-- Среда -->
+    <div class="day-panel" id="day-wed">
+        <ul class="class-list">
+            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Squash Beginner</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Spin & Fit</span><span class="class-hall">Cycling</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">High Heels</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Brazilian Butt</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Deep Core</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Booty Power</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Athletic Training <em>new</em></span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Squash Beginner</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Make Body</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Spin & Fit</span><span class="class-hall">Cycling</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Stretching</span><span class="class-hall">Intense</span></li>
+        </ul>
+    </div>
+ 
+    <!-- Четверг -->
+    <div class="day-panel" id="day-thu">
+        <ul class="class-list">
+            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Power Bands</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Flow Stretch</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Dance Mix</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Dance Beginner</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Deep Core</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Настольный теннис</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">ABS Sculpt</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Zumba</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Fly Yoga</span><span class="class-hall">Intense</span></li>
+        </ul>
+    </div>
+ 
+    <!-- Пятница -->
+    <div class="day-panel" id="day-fri">
+        <ul class="class-list">
+            <li><span class="class-time">—:—</span><span class="class-name">Morning Mobility</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Spin & Fit</span><span class="class-hall">Cycling</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Zumba</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Body Pumping</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Athletic Training <em>new</em></span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Pilates Props</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Fitball</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Crossfit</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Body Reset</span><span class="class-hall">Intense</span></li>
+        </ul>
+    </div>
+ 
+    <!-- Суббота -->
+    <div class="day-panel" id="day-sat">
+        <ul class="class-list">
+            <li><span class="class-time">—:—</span><span class="class-name">Aqua Fit</span><span class="class-hall">Бассейн</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Body Pumping</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Fly Yoga</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Cycling</span><span class="class-hall">Cycling</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Body Reset</span><span class="class-hall">Intense</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Squash Beginner</span><span class="class-hall">Squash</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Yoga</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">CrossFit Beginner</span><span class="class-hall">Crossfit</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Kickboxing</span><span class="class-hall">Crossfit</span></li>
+        </ul>
+    </div>
+ 
+    <!-- Воскресенье -->
+    <div class="day-panel" id="day-sun">
+        <ul class="class-list">
+            <li><span class="class-time">—:—</span><span class="class-name">Total Body Fit</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">ABSolution</span><span class="class-hall">Tonus</span></li>
+            <li><span class="class-time">—:—</span><span class="class-name">Stretching</span><span class="class-hall">Intense</span></li>
+        </ul>
+    </div>
+ 
+</section>
+ 
+<!-- ===== ОПИСАНИЕ ПРОГРАММ ПО КАТЕГОРИЯМ ===== -->
+<section class="programs-section">
+    <h2 class="section-title section-title-center"><span class="title-bar"></span>Описание программ</h2>
+    <p class="about-text" style="margin-bottom: 10px;">
+        Интенсивность: <strong>*</strong> низкая &nbsp;·&nbsp; <strong>**</strong> средняя &nbsp;·&nbsp; <strong>***</strong> высокая
+    </p>
+ 
+    <div class="category-list">
+ 
+        <div class="category-item">
+            <button class="category-toggle">
+                <span>Aerobics Class</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="category-panel">
+                <div class="category-panel-inner">
+                    <p><strong>STEP</strong> — кардиотренировка на степ-платформе: движение, ритм и функциональные упражнения для укрепления мышц и сжигания калорий.</p>
+                    <p><strong>FITBALL</strong> — тренировка с фитболом на укрепление всего тела, координацию и баланс.</p>
+                    <p><strong>CYCLING</strong> — кардио на велотренажёре по программе Technogym, развитие выносливости и сердечно-сосудистой системы.</p>
+                    <p><strong>TOTAL BODY FIT</strong> — силовые и кардиоупражнения для всего тела, укрепление мышц и сжигание калорий.</p>
+                    <p><strong>SPIN & FIT</strong> — велотренажёр в сочетании с силовыми упражнениями, выносливость и общая форма.</p>
+                    <p><strong>POWER BANDS</strong> — силовые и кардиоупражнения с эластичными лентами, коррекция фигуры.</p>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="category-item">
+            <button class="category-toggle">
+                <span>Functional Training</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="category-panel">
+                <div class="category-panel-inner">
+                    <p><strong>CROSSFIT</strong> — функциональные упражнения и работа со спецоборудованием: сила, выносливость, скорость, координация.</p>
+                    <p><strong>CROSSFIT BEGINNER</strong> — базовый уровень: приседания, отжимания, подтягивания, скакалка.</p>
+                    <p><strong>TRX</strong> — подвесная система и собственный вес тела: сила, баланс, координация.</p>
+                    <p><strong>SQUASH</strong> — динамичная игра для выносливости, реакции и стратегического мышления.</p>
+                    <p><strong>SQUASH BEGINNER</strong> — базовая техника игры для новичков, координация и скорость реакции.</p>
+                    <p><strong>ATHLETIC TRAINING</strong> — зональный кросс-тренинг: силовые + кардио-интервалы, атлетичное тело.</p>
+                    <p><strong>НАСТОЛЬНЫЙ ТЕННИС</strong> — реакция, координация и концентрация, подходит для любого возраста.</p>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="category-item">
+            <button class="category-toggle">
+                <span>Martial Class</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="category-panel">
+                <div class="category-panel-inner">
+                    <p><strong>KICKBOXING</strong> — элементы бокса, муай-тай и карате: сила, выносливость, координация, уверенность в себе.</p>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="category-item">
+            <button class="category-toggle">
+                <span>Dance Class</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="category-panel">
+                <div class="category-panel-inner">
+                    <p><strong>HIGH HEELS</strong> — танец на каблуках: координация, баланс, гибкость, грация.</p>
+                    <p><strong>DANCE BEGINNER</strong> — основы танца для начинающих в лёгкой атмосфере.</p>
+                    <p><strong>DANCE MIX</strong> — сочетание современных танцевальных направлений, энергия и ритм.</p>
+                    <p><strong>LATINO</strong> — латиноамериканские танцы: динамика, гибкость, выносливость.</p>
+                    <p><strong>ZUMBA</strong> — танцевальная фитнес-вечеринка под латино-хиты: калории и настроение.</p>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="category-item">
+            <button class="category-toggle">
+                <span>Power Class</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="category-panel">
+                <div class="category-panel-inner">
+                    <p><strong>ABSOLUTION</strong> — верх тела: плечи, спина, руки, пресс, осанка.</p>
+                    <p><strong>ABS & BUMS</strong> — живот, ягодицы и ноги, тонус и силуэт.</p>
+                    <p><strong>BRAZILIAN BUTT</strong> — ягодицы и ноги с отягощениями.</p>
+                    <p><strong>BODY PUMPING</strong> — штанга и диски, все группы мышц.</p>
+                    <p><strong>BOOTY POWER</strong> — ягодицы и ноги со степ-платформой и весом.</p>
+                    <p><strong>ABS SCULPT</strong> — пресс и поясница, статическая нагрузка.</p>
+                    <p><strong>MAKE BODY</strong> — все группы мышц, коррекция фигуры.</p>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="category-item">
+            <button class="category-toggle">
+                <span>Body & Mind</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="category-panel">
+                <div class="category-panel-inner">
+                    <p><strong>PILATES</strong> — контроль движений, дыхание, осанка, гибкость и баланс.</p>
+                    <p><strong>YOGA</strong> — позы, дыхание, релаксация, подвижность суставов.</p>
+                    <p><strong>FLY YOGA</strong> — йога в гамаках с элементами акробатики.</p>
+                    <p><strong>STRETCHING</strong> — развитие гибкости и подвижности суставов.</p>
+                    <p><strong>PILATES PROPS</strong> — пилатес с аксессуарами: гибкость, баланс, сила.</p>
+                    <p><strong>FLEX BODY</strong> — миофасциальное расслабление, мобилизация суставов, растяжка.</p>
+                    <p><strong>MORNING MOBILITY</strong> — низкая интенсивность, здоровье позвоночника.</p>
+                    <p><strong>FLOW STRETCH</strong> — мягкая тренировка на подвижность и контроль тела.</p>
+                    <p><strong>BODY RESET</strong> — растяжка, самомассаж, йога и релаксация.</p>
+                    <p><strong>DEEP CORE</strong> — глубокие мышцы кора, стабилизация позвоночника.</p>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="category-item">
+            <button class="category-toggle">
+                <span>Water Class</span>
+                <span class="arrow">▶</span>
+            </button>
+            <div class="category-panel">
+                <div class="category-panel-inner">
+                    <p><strong>AQUA FIT</strong> — кардио и силовые упражнения в воде со спецоборудованием, без нагрузки на суставы.</p>
+                    <p><strong>AQUA PILATES</strong> — пилатес в воде: подвижность, баланс, мышцы-стабилизаторы.</p>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</section>
+    
+    </main>
+
+
+    <script src="js/script.js"></script>
+
+
+
+    <footer class="site-footer">
+    <div class="footer-grid">
+
+        <div class="footer-logo">
+            <img src="img/logo_white_transparent.png" alt="SportPark">
+        </div>
+
+        <div class="footer-block">
+            <h4>Контакты</h4>
+            <p><i class="fa-solid fa-phone"></i> номер телефона </p>
+            <p><i class="fa-solid fa-house"></i> SportPark, Рышкановка,<br>ул. Н. Димо, 32</p>
+        </div>
+
+        <div class="footer-block">
+            <h4>&nbsp;</h4>
+            <p><i class="fa-solid fa-envelope"></i> not.office@sportpark.md</p>
+            <p><i class="fa-solid fa-clock"></i> Пн–Пт 07:00–22:00<br>Сб–Вс 08:00–20:00</p>
+        </div>
+
+        <div class="footer-block footer-social">
+            <h4>Follow Us</h4>
+<div class="social-icons">
+    <a href="https://www.facebook.com/sportpark.md" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/sportpark.md/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@sportpark1626" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+</div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 All rights reserved. Powered by <span>Juli</span>
+    </div>
+</footer>
+</body>
+</html>
