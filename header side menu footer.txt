@@ -98,10 +98,10 @@
                             <a href="services.html#crossfit">Кроссфит</a>
                             <a href="services.html#tennis">Настольный теннис</a>
                             <a href="services.html#squash">Сквош</a>
-                            <a href="services.html#group">Групповые программы</a>
-                            <a href="services.html#personal">Персональный тренинг</a>
                             <a href="services.html#pilates">Пилатес</a>
                             <a href="services.html#massage">Массаж</a>
+                            <a href="services.html#group">Спа-зона</a>
+                            <a href="services.html#personal">Групповые программы</a>
 
                         </div>
                     </div>
