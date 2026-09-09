@@ -961,28 +961,55 @@ html {
 .service-section {
     background-color: var(--red-dark);
     padding: 60px;
-    scroll-margin-top: 90px; /* чтобы хэдер не перекрывал при переходе по якорю */
+    scroll-margin-top: 90px;
 }
 
 .service-alt {
     background-color: var(--red-main);
 }
 
-.service-inner {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.service-title {
+.service-title-center {
     color: #e8776b;
-    font-size: 26px;
-    margin-bottom: 15px;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.service-text {
+.service-row {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.service-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.service-text-box {
+    flex: 1;
+    min-width: 280px;
+}
+
+.service-text-box p {
     color: #ede2de;
     font-size: 16px;
     line-height: 1.7;
+}
+
+.service-photo-box {
+    flex: 1;
+    min-width: 280px;
+}
+
+.service-photo-box img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
 }
 
 /* ============================================
@@ -1035,4 +1062,19 @@ html {
 .trainer-card p {
     color: #d8c9c4;
     font-size: 14px;
+}
+
+.service-text-box p {
+    margin-bottom: 15px;
+}
+
+.service-photo-box img {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;   /* отступ между картинками */
+}
+
+.service-photo-box img:last-child {
+    margin-bottom: 0;   /* убираем лишний отступ у последней картинки */
 }
