@@ -105,3 +105,16 @@ categoryToggles.forEach(function(toggle) {
         panel.classList.toggle('open');
     });
 });
+
+// ===== Форма "Оставьте заявку" =====
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // страница пока не перезагружается и никуда не отправляет данные
+
+        document.getElementById('formSuccess').classList.add('show');
+        contactForm.reset();
+        contactForm.style.display = 'none'; // прячем форму после успешной "отправки"
+    });
+}

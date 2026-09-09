@@ -182,7 +182,7 @@
         </nav>
     </aside>
 
-<main class="main-content">
+    <main class="main-content">
         
     
     </main>
