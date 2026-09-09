@@ -954,3 +954,33 @@ html {
 .form-success.show {
     display: block;
 }
+
+/* ============================================
+   СТРАНИЦА "УСЛУГИ" — секции по направлениям
+   ============================================ */
+.service-section {
+    background-color: var(--red-dark);
+    padding: 60px;
+    scroll-margin-top: 90px; /* чтобы хэдер не перекрывал при переходе по якорю */
+}
+
+.service-alt {
+    background-color: var(--red-main);
+}
+
+.service-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-title {
+    color: #e8776b;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.service-text {
+    color: #ede2de;
+    font-size: 16px;
+    line-height: 1.7;
+}
