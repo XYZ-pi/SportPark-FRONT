@@ -984,3 +984,55 @@ html {
     font-size: 16px;
     line-height: 1.7;
 }
+
+/* ============================================
+   СТРАНИЦА "ТРЕНЕРЫ" — карточки по направлениям
+   ============================================ */
+.trainer-section {
+    background-color: var(--red-dark);
+    padding: 60px;
+    scroll-margin-top: 90px;
+}
+
+.trainer-alt {
+    background-color: var(--red-main);
+}
+
+.trainer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.trainer-card {
+    background-color: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 30px;
+    width: 220px;
+    text-align: center;
+}
+
+.trainer-photo {
+    width: 90px;
+    height: 90px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    font-size: 32px;
+    color: #e8776b;
+}
+
+.trainer-card h4 {
+    color: white;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.trainer-card p {
+    color: #d8c9c4;
+    font-size: 14px;
+}
