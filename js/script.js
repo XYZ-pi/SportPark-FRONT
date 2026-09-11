@@ -118,3 +118,14 @@ if (contactForm) {
         contactForm.style.display = 'none'; // прячем форму после успешной "отправки"
     });
 }
+
+// ===== Форма входа (пока без реального бэкенда) =====
+const loginForm = document.getElementById('loginForm');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // TODO: здесь будет реальная проверка логина/пароля через сервер
+        window.location.href = 'profile.html';
+    });
+}
