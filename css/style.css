@@ -969,9 +969,12 @@ html {
 }
 
 .service-title-center {
-    color: #e8776b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: white;
     font-size: 32px;
-    text-align: center;
     margin-bottom: 30px;
 }
 
@@ -1064,6 +1067,16 @@ html {
     font-size: 14px;
 }
 
+/* .trainer-title-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 30px;
+} */
+
 .service-text-box p {
     margin-bottom: 15px;
 }
@@ -1077,4 +1090,14 @@ html {
 
 .service-photo-box img:last-child {
     margin-bottom: 0;   /* убираем лишний отступ у последней картинки */
+}
+
+.service-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 30px;
 }
