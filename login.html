@@ -220,7 +220,46 @@
 
     <script src="js/script.js"></script>
 
+    <script>
+const API_BASE = 'https://localhost:7083/api';
 
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    try {
+        const response = await fetch(`${API_BASE}/Auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        if (!response.ok) {
+            alert('Неверный email или пароль');
+            return;
+        }
+
+        const data = await response.json();
+        localStorage.setItem('token', data.token);
+
+        // Декодируем токен, чтобы узнать роль и сразу отправить на нужный профиль
+        const payload = JSON.parse(atob(data.token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+        const role = payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+
+        if (role === 'Admin') {
+            window.location.href = 'profile-admin.html';
+        } else if (role === 'Trainer') {
+            window.location.href = 'profile-trainer.html';
+        } else {
+            window.location.href = 'profile-client.html';
+        }
+    } catch (err) {
+        alert('Не удалось подключиться к серверу. Проверьте, что бэкенд запущен.');
+    }
+});
+</script>
 
     <footer class="site-footer">
     <div class="footer-grid">
