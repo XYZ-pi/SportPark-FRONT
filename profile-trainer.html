@@ -287,11 +287,13 @@
             });
 
             container.querySelectorAll('.complete-btn').forEach(btn => {
-                btn.addEventListener('click', async () => {
-                    const type = btn.dataset.type;
-                    const id = btn.dataset.id;
-                    const path = type === 'Group' ? `/Bookings/${id}/complete` : `/PersonalSessions/${id}/complete`;
-                    const res = await apiPost(path);
+    btn.addEventListener('click', async () => {
+        if (!confirm('Точно ли вы хотите списать эту тренировку?')) return;
+
+        const type = btn.dataset.type;
+        const id = btn.dataset.id;
+        const path = type === 'Group' ? `/Bookings/${id}/complete` : `/PersonalSessions/${id}/complete`;
+        const res = await apiPost(path);
                     if (res.ok) {
                         loadToday();
                         loadPersonal();
@@ -355,17 +357,26 @@
             });
         }
 
-        // ===== Список клиентов для формы =====
         async function loadClientsForSelect() {
-            const clients = await apiGet('/Users?role=Client');
-            const select = document.getElementById('clientSelect');
-            (clients || []).forEach(c => {
-                const opt = document.createElement('option');
-                opt.value = c.id;
-                opt.textContent = `${c.name} (${c.email})`;
-                select.appendChild(opt);
-            });
-        }
+    const clients = await apiGet('/Users?role=Client');
+    const select = document.getElementById('clientSelect');
+
+    if (!clients || clients.length === 0) {
+        const opt = document.createElement('option');
+        opt.textContent = 'Не удалось загрузить клиентов (проверьте консоль)';
+        opt.disabled = true;
+        select.appendChild(opt);
+        console.error('Users?role=Client вернул:', clients);
+        return;
+    }
+
+    clients.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = `${c.name} (${c.email})`;
+        select.appendChild(opt);
+    });
+}
 
         // ===== Добавление индивидуальной тренировки =====
         document.getElementById('addPersonalForm').addEventListener('submit', async function(e) {

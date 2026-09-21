@@ -158,16 +158,21 @@
             }
 
             subs.forEach(s => {
-                const typeLabel = s.type === 'Group' ? 'Групповые тренировки' : 'Индивидуальные тренировки';
-                const card = document.createElement('div');
-                card.className = 'sub-card';
-                card.innerHTML = `
-                    <h4>${typeLabel}</h4>
-                    <p class="sub-remaining">${s.remainingSessions} <span>из ${s.totalSessions}</span></p>
-                    <p class="sub-status">${s.isActive ? 'Активен' : 'Неактивен'}</p>
-                `;
-                container.appendChild(card);
-            });
+    const typeLabel = s.type === 'Group' ? 'Групповые тренировки' : 'Индивидуальные тренировки';
+    const expiryText = s.endDate
+        ? `Действует до ${new Date(s.endDate).toLocaleDateString('ru-RU')}`
+        : 'Без срока окончания';
+
+    const card = document.createElement('div');
+    card.className = 'sub-card';
+    card.innerHTML = `
+        <h4>${typeLabel}</h4>
+        <p class="sub-remaining">${s.remainingSessions} <span>из ${s.totalSessions}</span></p>
+        <p class="sub-status">${s.isActive ? 'Активен' : 'Неактивен'}</p>
+        <p class="sub-expiry">${expiryText}</p>
+    `;
+    container.appendChild(card);
+});
         }
 
         // ===== Мои тренировки (групповые + индивидуальные) =====

@@ -1277,6 +1277,12 @@ html {
     color: #b89e98;
 }
 
+.sub-expiry {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #b89e98;
+}
+
 /* Список тренировок клиента/тренера */
 .booking-row {
     display: flex;
