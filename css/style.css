@@ -1228,3 +1228,183 @@ html {
     font-size: 13px;
     line-height: 1.6;
 }
+
+/* ============================================
+   ЛИЧНЫЙ КАБИНЕТ — общие компоненты
+   ============================================ */
+.loading-text, .empty-text {
+    color: #d8c9c4;
+    font-style: italic;
+    padding: 10px 0;
+}
+
+/* Карточки абонементов */
+.sub-cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.sub-card {
+    background-color: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 25px 30px;
+    min-width: 220px;
+}
+
+.sub-card h4 {
+    color: #e8776b;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.sub-remaining {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+
+.sub-remaining span {
+    font-size: 15px;
+    font-weight: normal;
+    color: #d8c9c4;
+}
+
+.sub-status {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #b89e98;
+}
+
+/* Список тренировок клиента/тренера */
+.booking-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.booking-info {
+    color: #ede2de;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.booking-info span {
+    color: #b89e98;
+    font-size: 13px;
+}
+
+.cancel-btn, .complete-btn {
+    background-color: transparent;
+    border: 1px solid #e8776b;
+    color: #e8776b;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #e8776b;
+    color: white;
+}
+
+.complete-btn {
+    border-color: #7fb069;
+    color: #7fb069;
+}
+
+.complete-btn:hover {
+    background-color: #7fb069;
+    color: white;
+}
+
+/* Кнопка "Записаться" */
+.book-btn {
+    background-color: #e8776b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.book-btn:hover:not(:disabled) {
+    background-color: #d9614f;
+}
+
+.book-btn:disabled {
+    background-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.5);
+    cursor: default;
+}
+
+/* Простая форма (используется в профилях тренера/админа) */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+.profile-form input,
+.profile-form select {
+    background-color: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 12px 14px;
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.profile-form input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.profile-form button {
+    background-color: #e8776b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.profile-form button:hover {
+    background-color: #d9614f;
+}
+
+.role-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.role-filter button {
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.role-filter button.active {
+    background-color: #e8776b;
+    font-weight: bold;
+}

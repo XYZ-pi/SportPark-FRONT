@@ -87,11 +87,14 @@ const dayPanels = document.querySelectorAll('.day-panel');
 
 dayTabs.forEach(function(tab) {
     tab.addEventListener('click', function() {
+        const targetPanel = document.getElementById('day-' + tab.dataset.day);
+        if (!targetPanel) return; // это не schedule.html — пропускаем, не мешаем другим страницам
+
         dayTabs.forEach(t => t.classList.remove('active'));
         dayPanels.forEach(p => p.classList.remove('active'));
 
         tab.classList.add('active');
-        document.getElementById('day-' + tab.dataset.day).classList.add('active');
+        targetPanel.classList.add('active');
     });
 });
 
@@ -122,3 +125,42 @@ if (contactForm) {
 // ===== Форма входа (пока без реального бэкенда) =====
 const loginForm = document.getElementById('loginForm');
 
+// ===== Хэдер/сайдбар "знают", что пользователь уже вошёл =====
+(function() {
+    const token = localStorage.getItem('token');
+    const loginBtn = document.querySelector('.login-btn');
+    const sidebarProfileLink = document.querySelector('.sidebar .menu-link-simple');
+
+    function parseJwt(t) {
+        try {
+            return JSON.parse(atob(t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function roleToProfilePage(role) {
+        if (role === 'Admin') return 'profile-admin.html';
+        if (role === 'Trainer') return 'profile-trainer.html';
+        return 'profile-client.html';
+    }
+
+    const currentPage = window.location.pathname.split('/').pop();
+    const isOnProfilePage = currentPage.startsWith('profile-');
+
+    if (token) {
+        const payload = parseJwt(token);
+        const role = payload ? payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] : null;
+        const profilePage = roleToProfilePage(role);
+
+        if (loginBtn && !isOnProfilePage) {
+            loginBtn.textContent = 'Профиль';
+            loginBtn.href = profilePage;
+        }
+        if (sidebarProfileLink) {
+            sidebarProfileLink.href = profilePage;
+        }
+    } else if (sidebarProfileLink) {
+        sidebarProfileLink.href = 'login.html';
+    }
+})();

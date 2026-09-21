@@ -313,7 +313,9 @@
         // ===== Загрузка при старте =====
         loadSubscriptions();
         loadMyBookings();
-        loadBookableClasses();
+        loadBookableClasses().then(() => {
+    document.querySelector('.day-tab[data-day="1"]')?.classList.add('active');
+});
     </script>
 
 </body>
