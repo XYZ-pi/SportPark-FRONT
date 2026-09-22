@@ -180,8 +180,6 @@
         </nav>
     </aside>
 
-
-    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
     <main class="main-content">
 
         <section class="about-intro about-intro-center">
@@ -190,7 +188,7 @@
         </section>
 
         <!-- ===== АБОНЕМЕНТЫ ===== -->
-        <section class="service-section">
+        <section class="service-section service-alt">
             <h3 class="service-title"><span class="title-bar"></span>Мои абонементы</h3>
             <div class="sub-cards" id="subscriptionsContainer">
                 <p class="loading-text">Загрузка...</p>
@@ -198,7 +196,7 @@
         </section>
 
         <!-- ===== МОИ ЗАПИСИ ===== -->
-        <section class="service-section service-alt">
+        <section class="service-section">
             <h3 class="service-title"><span class="title-bar"></span>Мои тренировки</h3>
             <div class="booking-list" id="myBookingsContainer">
                 <p class="loading-text">Загрузка...</p>
@@ -206,7 +204,7 @@
         </section>
 
         <!-- ===== ЗАПИСЬ НА ГРУППОВОЕ ЗАНЯТИЕ ===== -->
-        <section class="schedule-section">
+        <section class="schedule-section service-alt">
             <h2 class="section-title section-title-center"><span class="title-bar"></span>Записаться на занятие</h2>
 
             <div class="day-tabs">
@@ -225,6 +223,7 @@
         </section>
 
     </main>
+
 
     <script src="js/script.js"></script>
     <script>
@@ -281,21 +280,21 @@
             }
 
             subs.forEach(s => {
-    const typeLabel = s.type === 'Group' ? 'Групповые тренировки' : 'Индивидуальные тренировки';
-    const expiryText = s.endDate
-        ? `Действует до ${new Date(s.endDate).toLocaleDateString('ru-RU')}`
-        : 'Без срока окончания';
+                const typeLabel = s.type === 'Group' ? 'Групповые тренировки' : 'Индивидуальные тренировки';
+                const expiryText = s.endDate
+                    ? `Действует до ${new Date(s.endDate).toLocaleDateString('ru-RU')}`
+                    : 'Без срока окончания';
 
-    const card = document.createElement('div');
-    card.className = 'sub-card';
-    card.innerHTML = `
-        <h4>${typeLabel}</h4>
-        <p class="sub-remaining">${s.remainingSessions} <span>из ${s.totalSessions}</span></p>
-        <p class="sub-status">${s.isActive ? 'Активен' : 'Неактивен'}</p>
-        <p class="sub-expiry">${expiryText}</p>
-    `;
-    container.appendChild(card);
-});
+                const card = document.createElement('div');
+                card.className = 'sub-card';
+                card.innerHTML = `
+                    <h4>${typeLabel}</h4>
+                    <p class="sub-remaining">${s.remainingSessions} <span>из ${s.totalSessions}</span></p>
+                    <p class="sub-status">${s.isActive ? 'Активен' : 'Неактивен'}</p>
+                    <p class="sub-expiry">${expiryText}</p>
+                `;
+                container.appendChild(card);
+            });
         }
 
         // ===== Мои тренировки (групповые + индивидуальные) =====
@@ -347,6 +346,8 @@
 
             container.querySelectorAll('.cancel-btn').forEach(btn => {
                 btn.addEventListener('click', async () => {
+                    if (!confirm('Точно ли вы хотите отменить эту запись?')) return;
+
                     const type = btn.dataset.type;
                     const id = btn.dataset.id;
                     const path = type === 'booking' ? `/Bookings/${id}/cancel` : `/PersonalSessions/${id}/cancel`;
@@ -375,7 +376,7 @@
                 .filter(b => b.status === 'Confirmed')
                 .map(b => b.classSessionId);
 
-            renderDay(1); // по умолчанию — понедельник
+            renderDay(1);
         }
 
         function renderDay(dayNum) {
@@ -432,21 +433,17 @@
             });
         });
 
-        // ===== Выход =====
-        document.getElementById('logoutBtn').addEventListener('click', () => {
-            localStorage.removeItem('token');
-            window.location.href = 'index.html';
-        });
-
         // ===== Загрузка при старте =====
         loadSubscriptions();
         loadMyBookings();
         loadBookableClasses().then(() => {
-    document.querySelector('.day-tab[data-day="1"]')?.classList.add('active');
-});
+            document.querySelector('.day-tab[data-day="1"]')?.classList.add('active');
+        });
     </script>
 
-<footer class="site-footer">
+
+
+    <footer class="site-footer">
     <div class="footer-grid">
 
         <div class="footer-logo">
@@ -480,6 +477,5 @@
         © 2026 All rights reserved. Powered by <span>Juli</span>
     </div>
 </footer>
-
 </body>
 </html>

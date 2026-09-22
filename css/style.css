@@ -1414,3 +1414,24 @@ html {
     background-color: #e8776b;
     font-weight: bold;
 }
+
+.profile-form select option {
+    background-color: var(--red-dark);
+    color: white;
+}
+
+.profile-form {
+    max-width: 500px;        /* Желаемая ширина блока */
+    margin: 0 auto;          /* Выравнивание формы по центру */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;               /* Отступы между полями */
+    align-items: center;     /* Центрирование элементов внутри, если нужно */
+}
+
+.profile-form select,
+.profile-form input,
+.profile-form button {
+    width: 100%;             /* Растягивает поля на всю ширину формы (500px) */
+    box-sizing: border-box;
+}

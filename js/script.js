@@ -129,7 +129,8 @@ const loginForm = document.getElementById('loginForm');
 (function() {
     const token = localStorage.getItem('token');
     const loginBtn = document.querySelector('.login-btn');
-    const sidebarProfileLink = document.querySelector('.sidebar .menu-link-simple');
+    const sidebarLinks = document.querySelectorAll('.sidebar .menu-link-simple');
+    const sidebarProfileLink = Array.from(sidebarLinks).find(a => a.textContent.trim() === 'Профиль');
 
     function parseJwt(t) {
         try {
@@ -153,14 +154,25 @@ const loginForm = document.getElementById('loginForm');
         const role = payload ? payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] : null;
         const profilePage = roleToProfilePage(role);
 
-        if (loginBtn && !isOnProfilePage) {
-            loginBtn.textContent = 'Профиль';
-            loginBtn.href = profilePage;
+        if (loginBtn) {
+            if (isOnProfilePage) {
+                loginBtn.textContent = 'Выйти';
+                loginBtn.setAttribute('href', '#');
+                loginBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('token');
+                    window.location.href = 'index.html';
+                });
+            } else {
+                loginBtn.textContent = 'Профиль';
+                loginBtn.setAttribute('href', profilePage);
+            }
         }
+
         if (sidebarProfileLink) {
-            sidebarProfileLink.href = profilePage;
+            sidebarProfileLink.setAttribute('href', profilePage);
         }
     } else if (sidebarProfileLink) {
-        sidebarProfileLink.href = 'login.html';
+        sidebarProfileLink.setAttribute('href', 'login.html');
     }
 })();

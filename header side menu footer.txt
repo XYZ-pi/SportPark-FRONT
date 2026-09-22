@@ -226,3 +226,339 @@
 </footer>
 </body>
 </html>
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — SportPark</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- ===== ХЭДЕР ===== -->
+    <header class="topbar visible" id="topbar">
+        <button class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <span class="topbar-logo">
+            <img src="img/logo_white_transparent.png" alt="SportPark">
+        </span>
+
+        <nav class="top-nav">
+            <a href="index.html#about">О клубе</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+
+        <nav class="top-nav"></nav>
+
+        <button class="login-btn" id="logoutBtn">Выйти</button>
+    </header>
+
+    <!-- ===== ЗАТЕМНЕНИЕ ФОНА ===== -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ===== ЛЕВОЕ ВЫЕЗЖАЮЩЕЕ МЕНЮ ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-box">
+            <span class="logo-text">
+                <img src="img/logo_white_transparent.png" alt="SportPark">
+            </span>
+        </div>
+
+        <nav class="side-nav">
+            <div class="menu-item">
+                <a href="services.html" class="menu-link-simple">Наши услуги</a>
+            </div>
+            <div class="menu-item">
+                <a href="trainers.html" class="menu-link-simple">Наша команда</a>
+            </div>
+            <div class="menu-item">
+                <a href="schedule.html" class="menu-link-simple">Расписание</a>
+            </div>
+            <div class="menu-item">
+                <a href="profile-client.html" class="menu-link-simple">Профиль</a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+    <main class="main-content">
+
+        <section class="about-intro about-intro-center">
+            <h2 class="section-title section-title-center"><span class="title-bar"></span>Личный кабинет</h2>
+            <p class="about-text" id="welcomeText">Загрузка...</p>
+        </section>
+
+        <!-- ===== АБОНЕМЕНТЫ ===== -->
+        <section class="service-section">
+            <h3 class="service-title"><span class="title-bar"></span>Мои абонементы</h3>
+            <div class="sub-cards" id="subscriptionsContainer">
+                <p class="loading-text">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- ===== МОИ ЗАПИСИ ===== -->
+        <section class="service-section service-alt">
+            <h3 class="service-title"><span class="title-bar"></span>Мои тренировки</h3>
+            <div class="booking-list" id="myBookingsContainer">
+                <p class="loading-text">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- ===== ЗАПИСЬ НА ГРУППОВОЕ ЗАНЯТИЕ ===== -->
+        <section class="schedule-section">
+            <h2 class="section-title section-title-center"><span class="title-bar"></span>Записаться на занятие</h2>
+
+            <div class="day-tabs">
+                <button class="day-tab" data-day="1">Пн</button>
+                <button class="day-tab" data-day="2">Вт</button>
+                <button class="day-tab" data-day="3">Ср</button>
+                <button class="day-tab" data-day="4">Чт</button>
+                <button class="day-tab" data-day="5">Пт</button>
+                <button class="day-tab" data-day="6">Сб</button>
+                <button class="day-tab" data-day="0">Вс</button>
+            </div>
+
+            <div class="day-panel active" id="bookableClasses">
+                <p class="loading-text">Выберите день</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        const API_BASE = 'https://localhost:7083/api';
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+
+        function parseJwt(t) {
+            return JSON.parse(atob(t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+        }
+
+        const payload = parseJwt(token);
+        const email = payload['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
+        document.getElementById('welcomeText').textContent = `Вы вошли как ${email}`;
+
+        function authHeaders() {
+            return {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            };
+        }
+
+        async function apiGet(path) {
+            const res = await fetch(`${API_BASE}${path}`, { headers: authHeaders() });
+            if (res.status === 401) {
+                localStorage.removeItem('token');
+                window.location.href = 'login.html';
+                return null;
+            }
+            return res.ok ? res.json() : null;
+        }
+
+        async function apiPost(path, body) {
+            const res = await fetch(`${API_BASE}${path}`, {
+                method: 'POST',
+                headers: authHeaders(),
+                body: body ? JSON.stringify(body) : undefined
+            });
+            return res;
+        }
+
+        // ===== Абонементы =====
+        async function loadSubscriptions() {
+            const subs = await apiGet('/Subscriptions/my');
+            const container = document.getElementById('subscriptionsContainer');
+            container.innerHTML = '';
+
+            if (!subs || subs.length === 0) {
+                container.innerHTML = '<p class="empty-text">У вас пока нет абонементов. Обратитесь на ресепшен клуба.</p>';
+                return;
+            }
+
+            subs.forEach(s => {
+                const typeLabel = s.type === 'Group' ? 'Групповые тренировки' : 'Индивидуальные тренировки';
+                const card = document.createElement('div');
+                card.className = 'sub-card';
+                card.innerHTML = `
+                    <h4>${typeLabel}</h4>
+                    <p class="sub-remaining">${s.remainingSessions} <span>из ${s.totalSessions}</span></p>
+                    <p class="sub-status">${s.isActive ? 'Активен' : 'Неактивен'}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ===== Мои тренировки (групповые + индивидуальные) =====
+        async function loadMyBookings() {
+            const [bookings, personal] = await Promise.all([
+                apiGet('/Bookings/my'),
+                apiGet('/PersonalSessions/my-as-client')
+            ]);
+
+            const container = document.getElementById('myBookingsContainer');
+            container.innerHTML = '';
+
+            const activeBookings = (bookings || []).filter(b => b.status === 'Confirmed');
+            const activePersonal = (personal || []).filter(p => !p.completed && !p.cancelled);
+
+            if (activeBookings.length === 0 && activePersonal.length === 0) {
+                container.innerHTML = '<p class="empty-text">У вас нет предстоящих тренировок.</p>';
+                return;
+            }
+
+            const days = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
+
+            activeBookings.forEach(b => {
+                const row = document.createElement('div');
+                row.className = 'booking-row';
+                row.innerHTML = `
+                    <div class="booking-info">
+                        <strong>${b.serviceName}</strong> — ${b.trainerName}<br>
+                        <span>${days[b.dayOfWeek]}, ${b.startTime}, зал ${b.hall}</span>
+                    </div>
+                    <button class="cancel-btn" data-type="booking" data-id="${b.id}">Отменить</button>
+                `;
+                container.appendChild(row);
+            });
+
+            activePersonal.forEach(p => {
+                const dt = new Date(p.sessionStart);
+                const row = document.createElement('div');
+                row.className = 'booking-row';
+                row.innerHTML = `
+                    <div class="booking-info">
+                        <strong>Индивидуальная тренировка</strong> — ${p.trainerName}<br>
+                        <span>${dt.toLocaleDateString('ru-RU')}, ${dt.toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'})}</span>
+                    </div>
+                    <button class="cancel-btn" data-type="personal" data-id="${p.id}">Отменить</button>
+                `;
+                container.appendChild(row);
+            });
+
+            container.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const type = btn.dataset.type;
+                    const id = btn.dataset.id;
+                    const path = type === 'booking' ? `/Bookings/${id}/cancel` : `/PersonalSessions/${id}/cancel`;
+                    const res = await apiPost(path);
+                    if (res.ok) {
+                        loadMyBookings();
+                        loadSubscriptions();
+                    } else {
+                        alert('Не удалось отменить запись');
+                    }
+                });
+            });
+        }
+
+        // ===== Запись на групповое занятие =====
+        let allClassSessions = [];
+        let myBookedSessionIds = [];
+
+        async function loadBookableClasses() {
+            const [sessions, bookings] = await Promise.all([
+                apiGet('/ClassSessions'),
+                apiGet('/Bookings/my')
+            ]);
+            allClassSessions = sessions || [];
+            myBookedSessionIds = (bookings || [])
+                .filter(b => b.status === 'Confirmed')
+                .map(b => b.classSessionId);
+
+            renderDay(1); // по умолчанию — понедельник
+        }
+
+        function renderDay(dayNum) {
+            const container = document.getElementById('bookableClasses');
+            const dayClasses = allClassSessions.filter(cs => cs.dayOfWeek === dayNum);
+
+            if (dayClasses.length === 0) {
+                container.innerHTML = '<p class="empty-text">На этот день занятий нет.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+            const list = document.createElement('ul');
+            list.className = 'class-list';
+
+            dayClasses.forEach(cs => {
+                const alreadyBooked = myBookedSessionIds.includes(cs.id);
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span class="class-time">${cs.startTime}</span>
+                    <span class="class-name">${cs.serviceName} — ${cs.trainerName}</span>
+                    <span class="class-hall">${cs.hall}</span>
+                    <button class="book-btn" data-id="${cs.id}" ${alreadyBooked ? 'disabled' : ''}>
+                        ${alreadyBooked ? 'Вы записаны' : 'Записаться'}
+                    </button>
+                `;
+                list.appendChild(li);
+            });
+
+            container.appendChild(list);
+
+            container.querySelectorAll('.book-btn:not([disabled])').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const id = parseInt(btn.dataset.id);
+                    const res = await apiPost('/Bookings', { classSessionId: id });
+                    if (res.ok) {
+                        alert('Вы успешно записаны!');
+                        loadMyBookings();
+                        loadSubscriptions();
+                        loadBookableClasses();
+                    } else {
+                        const err = await res.json().catch(() => ({}));
+                        alert(err.message || 'Не удалось записаться');
+                    }
+                });
+            });
+        }
+
+        document.querySelectorAll('.day-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderDay(parseInt(tab.dataset.day));
+            });
+        });
+
+        // ===== Выход =====
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = 'index.html';
+        });
+
+        // ===== Загрузка при старте =====
+        loadSubscriptions();
+        loadMyBookings();
+        loadBookableClasses();
+    </script>
+
+</body>
+</html>
