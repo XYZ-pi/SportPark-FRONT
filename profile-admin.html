@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportPark — Спортивный клуб</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- ===== ХЭДЕР (появляется при скролле) ===== -->
+     
+    <header class="topbar visible" id="topbar">
+    <button class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <span class="topbar-logo">
+        <img src="img/logo_white_transparent.png" alt="SportPark">
+    </span>
+
+    <nav class="top-nav">
+        <a href="index.html#about">О клубе</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+
+    <nav class="top-nav">
+        <div class="dropdown">
+            <button class="dropdown-toggle">
+                <span>Язык</span>
+                <span class="dropdown-arrow">▶</span>
+            </button>
+            <div class="dropdown-menu">
+                <a href="#" class="lang-ru">Русский</a>
+                <a href="#" class="lang-ro">Română</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-toggle">
+                <span>Соц. сети</span>
+                <span class="dropdown-arrow">▶</span>
+            </button>
+            <div class="dropdown-menu">
+                <a href="https://www.facebook.com/sportpark.md" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                <a href="https://www.instagram.com/sportpark.md/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://www.youtube.com/@sportpark1626" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            </div>
+        </div>
+    </nav>
+
+    <a href="login.html" class="login-btn">Вход</a>
+</header>
+
+<!-- ===== ЗАТЕМНЕНИЕ ФОНА (для сайдбара) ===== -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== ЛЕВОЕ ВЫЕЗЖАЮЩЕЕ МЕНЮ ===== -->
+<aside class="sidebar" id="sidebar">
+        <div class="logo-box">
+            <span class="logo-text">
+                <img src="img/logo_white_transparent.png" alt="SportPark">
+            </span>
+        </div>
+
+        <nav class="side-nav">
+
+    <!-- УСЛУГИ -->
+    <div class="menu-item">
+
+        <button class="menu-toggle">
+            <span>Услуги</span>
+            <span class="arrow">▶</span>
+        </button>
+
+        <div class="submenu">
+            <div class="submenu-inner">
+
+                <!-- Все услуги -->
+                <a href="services.html">Наши услуги</a>
+
+                <!-- По направлениям -->
+                <div class="menu-item nested">
+
+                    <button class="menu-toggle">
+                        <span>По направлениям</span>
+                        <span class="arrow">▶</span>
+                    </button>
+
+                    <div class="submenu">
+                        <div class="submenu-inner">
+
+                            <a href="services.html#pool">Бассейн</a>
+                            <a href="services.html#fitness">Фитнес</a>
+                            <a href="services.html#crossfit">Кроссфит</a>
+                            <a href="services.html#tennis">Настольный теннис</a>
+                            <a href="services.html#squash">Сквош</a>
+                            <a href="services.html#pilates">Пилатес</a>
+                            <a href="services.html#massage">Массаж</a>
+                            <a href="services.html#spa-zone">Спа-зона</a>
+                            <a href="services.html#group">Групповые программы</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ТРЕНЕРЫ -->
+    <div class="menu-item">
+
+        <button class="menu-toggle">
+            <span>Тренеры</span>
+            <span class="arrow">▶</span>
+        </button>
+
+        <div class="submenu">
+            <div class="submenu-inner">
+
+                <!-- Все тренеры -->
+                <a href="trainers.html">Наша команда</a>
+
+                <!-- По направлениям -->
+                <div class="menu-item nested">
+
+                    <button class="menu-toggle">
+                        <span>По направлениям</span>
+                        <span class="arrow">▶</span>
+                    </button>
+
+                    <div class="submenu">
+                        <div class="submenu-inner">
+
+                            <a href="trainers.html#pool">Бассейн</a>
+                            <a href="trainers.html#fitness">Фитнес</a>
+                            <a href="trainers.html#group">Групповые программы</a>
+                            <a href="trainers.html#massage">Кинетотерапия, массаж</a>
+                            <a href="trainers.html#martial-arts">Боевые искусства</a>
+                            <a href="trainers.html#tennis">Теннис</a>
+                            <a href="trainers.html#squash">Сквош</a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+            <div class="menu-item">
+                <button class="menu-toggle">
+                    <span>Расписание</span>
+                    <span class="arrow">▶</span>
+                </button>
+                <div class="submenu">
+                    <div class="submenu-inner"> 
+                    <a href="schedule.html">Групповое расписание</a>
+                    <a href="kids_schedule.html">Детское расписание</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="profile.html" class="menu-link-simple">Профиль</a>
+            </div>
+
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <section class="about-intro about-intro-center">
+            <h2 class="section-title section-title-center"><span class="title-bar"></span>Профиль администратора</h2>
+            <p class="about-text" id="welcomeText">Загрузка...</p>
+        </section>
+
+        <!-- ===== ПОЛЬЗОВАТЕЛИ ===== -->
+        <section class="service-section">
+            <h3 class="service-title"><span class="title-bar"></span>Пользователи</h3>
+            <div class="role-filter">
+                <button data-role="" class="active">Все</button>
+                <button data-role="Client">Клиенты</button>
+                <button data-role="Trainer">Тренеры</button>
+                <button data-role="Admin">Админы</button>
+            </div>
+            <div class="booking-list" id="usersContainer">
+                <p class="loading-text">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- ===== СОЗДАТЬ ПОЛЬЗОВАТЕЛЯ ===== -->
+        <section class="service-section service-alt">
+            <h3 class="service-title"><span class="title-bar"></span>Создать пользователя</h3>
+            <form class="profile-form" id="createUserForm">
+                <input type="text" id="newName" placeholder="Имя" required>
+                <input type="email" id="newEmail" placeholder="Email" required>
+                <input type="password" id="newPassword" placeholder="Пароль" required>
+                <input type="tel" id="newPhone" placeholder="Телефон (необязательно)">
+                <select id="newRole">
+                    <option value="Client">Клиент</option>
+                    <option value="Trainer">Тренер</option>
+                    <option value="Admin">Админ</option>
+                </select>
+                <button type="submit">Создать</button>
+            </form>
+        </section>
+
+        <!-- ===== АБОНЕМЕНТЫ ===== -->
+        <section class="service-section">
+            <h3 class="service-title"><span class="title-bar"></span>Абонементы клиентов</h3>
+            <div class="sub-cards" id="subscriptionsContainer">
+                <p class="loading-text">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- ===== ВЫДАТЬ АБОНЕМЕНТ ===== -->
+        <section class="service-section service-alt">
+            <h3 class="service-title"><span class="title-bar"></span>Выдать абонемент</h3>
+            <form class="profile-form" id="createSubForm">
+                <select id="subClientSelect" required>
+                    <option value="">Выберите клиента...</option>
+                </select>
+                <select id="subType">
+                    <option value="Group">Групповые тренировки</option>
+                    <option value="Individual">Индивидуальные тренировки</option>
+                </select>
+                <input type="number" id="subTotal" placeholder="Количество тренировок" min="1" required>
+                <input type="date" id="subEndDate" placeholder="Дата окончания (необязательно)">
+                <button type="submit">Выдать абонемент</button>
+            </form>
+        </section>
+
+        <!-- ===== ВСЕ ГРУППОВЫЕ ЗАПИСИ ===== -->
+        <section class="service-section">
+            <h3 class="service-title"><span class="title-bar"></span>Групповые записи</h3>
+            <div class="booking-list" id="allBookingsContainer">
+                <p class="loading-text">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- ===== ВСЕ ИНДИВИДУАЛЬНЫЕ ТРЕНИРОВКИ ===== -->
+        <section class="service-section service-alt">
+            <h3 class="service-title"><span class="title-bar"></span>Индивидуальные тренировки</h3>
+            <div class="booking-list" id="allPersonalContainer">
+                <p class="loading-text">Загрузка...</p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="js/script.js"></script>
+    <script>
+        const API_BASE = 'https://localhost:7083/api';
+        const token = localStorage.getItem('token');
+        if (!token) window.location.href = 'login.html';
+
+        function parseJwt(t) {
+            return JSON.parse(atob(t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+        }
+        const payload = parseJwt(token);
+        const email = payload['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
+        document.getElementById('welcomeText').textContent = `Вы вошли как ${email}`;
+
+        function authHeaders() {
+            return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
+        }
+
+        async function apiGet(path) {
+            const res = await fetch(`${API_BASE}${path}`, { headers: authHeaders() });
+            if (res.status === 401) {
+                localStorage.removeItem('token');
+                window.location.href = 'login.html';
+                return null;
+            }
+            return res.ok ? res.json() : null;
+        }
+
+        async function apiPost(path, body) {
+            return fetch(`${API_BASE}${path}`, {
+                method: 'POST',
+                headers: authHeaders(),
+                body: body ? JSON.stringify(body) : undefined
+            });
+        }
+
+        const roleLabels = { Client: 'Клиент', Trainer: 'Тренер', Admin: 'Админ' };
+
+        // ===== Пользователи (с пагинацией) =====
+let allUsersData = [];
+let currentUserPage = 1;
+const USERS_PER_PAGE = 5;
+
+async function loadUsers(role) {
+    const path = role ? `/Users?role=${role}` : '/Users';
+    const users = await apiGet(path);
+    allUsersData = users || [];
+    currentUserPage = 1;
+    renderUsersPage();
+}
+
+function renderUsersPage() {
+    const container = document.getElementById('usersContainer');
+    container.innerHTML = '';
+
+    if (allUsersData.length === 0) {
+        container.innerHTML = '<p class="empty-text">Пользователей нет.</p>';
+        return;
+    }
+
+    const totalPages = Math.ceil(allUsersData.length / USERS_PER_PAGE);
+    const start = (currentUserPage - 1) * USERS_PER_PAGE;
+    const pageUsers = allUsersData.slice(start, start + USERS_PER_PAGE);
+
+    pageUsers.forEach(u => {
+        const row = document.createElement('div');
+        row.className = 'booking-row';
+        row.innerHTML = `
+            <div class="booking-info">
+                <strong>${u.name}</strong> — ${roleLabels[u.role] || u.role}<br>
+                <span>${u.email}${u.phone ? ', ' + u.phone : ''}</span>
+            </div>
+        `;
+        container.appendChild(row);
+    });
+
+    if (totalPages > 1) {
+        const pagination = document.createElement('div');
+        pagination.className = 'pagination';
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            if (i === currentUserPage) btn.classList.add('active');
+            btn.addEventListener('click', () => {
+                currentUserPage = i;
+                renderUsersPage();
+            });
+            pagination.appendChild(btn);
+        }
+        container.appendChild(pagination);
+    }
+}
+
+        document.querySelectorAll('.role-filter button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.role-filter button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                loadUsers(btn.dataset.role);
+            });
+        });
+
+        // ===== Создать пользователя =====
+        document.getElementById('createUserForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const body = {
+                name: document.getElementById('newName').value,
+                email: document.getElementById('newEmail').value,
+                password: document.getElementById('newPassword').value,
+                phone: document.getElementById('newPhone').value || null,
+                role: document.getElementById('newRole').value
+            };
+
+            const res = await apiPost('/Auth/register', body);
+            if (res.ok) {
+                alert('Пользователь создан');
+                document.getElementById('createUserForm').reset();
+                loadUsers('');
+                loadClientsForSelect();
+            } else {
+                const err = await res.json().catch(() => ({}));
+                alert(err.message || 'Не удалось создать пользователя');
+            }
+        });
+
+        // ===== Абонементы =====
+        async function loadSubscriptions() {
+            const subs = await apiGet('/Subscriptions');
+            const container = document.getElementById('subscriptionsContainer');
+            container.innerHTML = '';
+
+            if (!subs || subs.length === 0) {
+                container.innerHTML = '<p class="empty-text">Абонементов пока нет.</p>';
+                return;
+            }
+
+            subs.forEach(s => {
+                const typeLabel = s.type === 'Group' ? 'Групповые' : 'Индивидуальные';
+                const expiryText = s.endDate ? new Date(s.endDate).toLocaleDateString('ru-RU') : 'без срока';
+
+                const card = document.createElement('div');
+                card.className = 'sub-card';
+                card.innerHTML = `
+                    <h4>${s.clientName}</h4>
+                    <p class="sub-remaining">${s.remainingSessions} <span>из ${s.totalSessions} (${typeLabel})</span></p>
+                    <p class="sub-status">${s.isActive ? 'Активен' : 'Неактивен'}</p>
+                    <p class="sub-expiry">До: ${expiryText}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function loadClientsForSelect() {
+            const clients = await apiGet('/Users?role=Client');
+            const select = document.getElementById('subClientSelect');
+            select.innerHTML = '<option value="">Выберите клиента...</option>';
+
+            (clients || []).forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = `${c.name} (${c.email})`;
+                select.appendChild(opt);
+            });
+        }
+
+        document.getElementById('createSubForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const body = {
+                userId: parseInt(document.getElementById('subClientSelect').value),
+                type: document.getElementById('subType').value,
+                totalSessions: parseInt(document.getElementById('subTotal').value),
+                endDate: document.getElementById('subEndDate').value || null
+            };
+
+            const res = await apiPost('/Subscriptions', body);
+            if (res.ok) {
+                alert('Абонемент выдан');
+                document.getElementById('createSubForm').reset();
+                loadSubscriptions();
+            } else {
+                const err = await res.json().catch(() => ({}));
+                alert(err.message || 'Не удалось выдать абонемент');
+            }
+        });
+
+        // ===== Все групповые записи =====
+        async function loadAllBookings() {
+            const bookings = await apiGet('/Bookings');
+            const container = document.getElementById('allBookingsContainer');
+            container.innerHTML = '';
+
+            const active = (bookings || []).filter(b => b.status === 'Confirmed');
+
+            if (active.length === 0) {
+                container.innerHTML = '<p class="empty-text">Нет активных групповых записей.</p>';
+                return;
+            }
+
+            const days = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
+
+            active.forEach(b => {
+                const row = document.createElement('div');
+                row.className = 'booking-row';
+                row.innerHTML = `
+                    <div class="booking-info">
+                        <strong>${b.clientName || 'Клиент'}</strong> — ${b.serviceName}, ${b.trainerName}<br>
+                        <span>${days[b.dayOfWeek]}, ${b.startTime}, зал ${b.hall}</span>
+                    </div>
+                    <button class="complete-btn" data-id="${b.id}">Списать</button>
+                `;
+                container.appendChild(row);
+            });
+
+            container.querySelectorAll('.complete-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    if (!confirm('Точно ли вы хотите списать эту тренировку?')) return;
+                    const res = await apiPost(`/Bookings/${btn.dataset.id}/complete`);
+                    if (res.ok) {
+                        loadAllBookings();
+                        loadSubscriptions();
+                    } else {
+                        alert('Не удалось списать');
+                    }
+                });
+            });
+        }
+
+        // ===== Все индивидуальные тренировки =====
+        async function loadAllPersonal() {
+            const sessions = await apiGet('/PersonalSessions');
+            const container = document.getElementById('allPersonalContainer');
+            container.innerHTML = '';
+
+            const active = (sessions || []).filter(p => !p.completed && !p.cancelled);
+
+            if (active.length === 0) {
+                container.innerHTML = '<p class="empty-text">Нет активных индивидуальных тренировок.</p>';
+                return;
+            }
+
+            active.forEach(p => {
+                const dt = new Date(p.sessionStart);
+                const row = document.createElement('div');
+                row.className = 'booking-row';
+                row.innerHTML = `
+                    <div class="booking-info">
+                        <strong>${p.clientName}</strong> — тренер ${p.trainerName}<br>
+                        <span>${dt.toLocaleDateString('ru-RU')}, ${dt.toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'})}</span>
+                    </div>
+                    <button class="complete-btn" data-id="${p.id}">Списать</button>
+                `;
+                container.appendChild(row);
+            });
+
+            container.querySelectorAll('.complete-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    if (!confirm('Точно ли вы хотите списать эту тренировку?')) return;
+                    const res = await apiPost(`/PersonalSessions/${btn.dataset.id}/complete`);
+                    if (res.ok) {
+                        loadAllPersonal();
+                        loadSubscriptions();
+                    } else {
+                        alert('Не удалось списать');
+                    }
+                });
+            });
+        }
+
+        loadUsers('');
+        loadSubscriptions();
+        loadClientsForSelect();
+        loadAllBookings();
+        loadAllPersonal();
+    </script>
+
+
+
+    <footer class="site-footer">
+    <div class="footer-grid">
+
+        <div class="footer-logo">
+            <img src="img/logo_white_transparent.png" alt="SportPark">
+        </div>
+
+        <div class="footer-block">
+            <h4>Контакты</h4>
+            <p><i class="fa-solid fa-phone"></i> номер телефона </p>
+            <p><i class="fa-solid fa-house"></i> SportPark, Рышкановка,<br>ул. Н. Димо, 32</p>
+        </div>
+
+        <div class="footer-block">
+            <h4>&nbsp;</h4>
+            <p><i class="fa-solid fa-envelope"></i> not.office@sportpark.md</p>
+            <p><i class="fa-solid fa-clock"></i> Пн–Пт 07:00–22:00<br>Сб–Вс 08:00–20:00</p>
+        </div>
+
+        <div class="footer-block footer-social">
+            <h4>Follow Us</h4>
+<div class="social-icons">
+    <a href="https://www.facebook.com/sportpark.md" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/sportpark.md/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@sportpark1626" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+</div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 All rights reserved. Powered by <span>Juli</span>
+    </div>
+</footer>
+</body>
+</html>

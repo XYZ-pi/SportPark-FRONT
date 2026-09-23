@@ -206,7 +206,10 @@
         <!-- ===== ЗАПИСЬ НА ГРУППОВОЕ ЗАНЯТИЕ ===== -->
         <section class="schedule-section service-alt">
             <h2 class="section-title section-title-center"><span class="title-bar"></span>Записаться на занятие</h2>
-
+            <div class="audience-toggle">
+    <button class="audience-btn active" data-audience="Adult">Взрослые группы</button>
+    <button class="audience-btn" data-audience="Kids">Детские группы</button>
+</div>
             <div class="day-tabs">
                 <button class="day-tab" data-day="1">Пн</button>
                 <button class="day-tab" data-day="2">Вт</button>
@@ -365,6 +368,7 @@
         // ===== Запись на групповое занятие =====
         let allClassSessions = [];
         let myBookedSessionIds = [];
+        let currentAudience = 'Adult';
 
         async function loadBookableClasses() {
             const [sessions, bookings] = await Promise.all([
@@ -380,8 +384,8 @@
         }
 
         function renderDay(dayNum) {
-            const container = document.getElementById('bookableClasses');
-            const dayClasses = allClassSessions.filter(cs => cs.dayOfWeek === dayNum);
+    const container = document.getElementById('bookableClasses');
+    const dayClasses = allClassSessions.filter(cs => cs.dayOfWeek === dayNum && cs.audienceType === currentAudience);
 
             if (dayClasses.length === 0) {
                 container.innerHTML = '<p class="empty-text">На этот день занятий нет.</p>';
@@ -439,6 +443,19 @@
         loadBookableClasses().then(() => {
             document.querySelector('.day-tab[data-day="1"]')?.classList.add('active');
         });
+
+
+        document.querySelectorAll('.audience-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.audience-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentAudience = btn.dataset.audience;
+
+        const activeDayTab = document.querySelector('.day-tab.active');
+        renderDay(activeDayTab ? parseInt(activeDayTab.dataset.day) : 1);
+    });
+});
+
     </script>
 
 
