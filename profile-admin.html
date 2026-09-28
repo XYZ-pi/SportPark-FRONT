@@ -209,11 +209,18 @@
                 <input type="email" id="newEmail" placeholder="Email" required>
                 <input type="password" id="newPassword" placeholder="Пароль" required>
                 <input type="tel" id="newPhone" placeholder="Телефон (необязательно)">
+
                 <select id="newRole">
-                    <option value="Client">Клиент</option>
-                    <option value="Trainer">Тренер</option>
-                    <option value="Admin">Админ</option>
-                </select>
+    <option value="Client">Клиент</option>
+    <option value="Trainer">Тренер</option>
+    <option value="Admin">Админ</option>
+</select>
+
+<div id="trainerFields" style="display:none;">
+    <input type="text" id="trainerSpecialization" placeholder="Специализация">
+    <textarea id="trainerBio" placeholder="О тренере"></textarea>
+    <input type="text" id="trainerPhotoUrl" placeholder="URL фото">
+</div>
                 <button type="submit">Создать</button>
             </form>
         </section>
@@ -362,29 +369,66 @@ function renderUsersPage() {
             });
         });
 
+// ===== Переключение полей тренера =====
+const newRole = document.getElementById('newRole');
+const trainerFields = document.getElementById('trainerFields');
+
+newRole.addEventListener('change', function () {
+    trainerFields.style.display =
+        this.value === 'Trainer' ? 'block' : 'none';
+});
+
         // ===== Создать пользователя =====
         document.getElementById('createUserForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+    e.preventDefault();
 
-            const body = {
-                name: document.getElementById('newName').value,
-                email: document.getElementById('newEmail').value,
-                password: document.getElementById('newPassword').value,
-                phone: document.getElementById('newPhone').value || null,
-                role: document.getElementById('newRole').value
-            };
+    const role = document.getElementById('newRole').value;
 
-            const res = await apiPost('/Auth/register', body);
-            if (res.ok) {
-                alert('Пользователь создан');
-                document.getElementById('createUserForm').reset();
-                loadUsers('');
-                loadClientsForSelect();
-            } else {
-                const err = await res.json().catch(() => ({}));
-                alert(err.message || 'Не удалось создать пользователя');
-            }
-        });
+    let body;
+
+    if (role === 'Trainer') {
+        body = {
+            name: document.getElementById('newName').value,
+            email: document.getElementById('newEmail').value,
+            password: document.getElementById('newPassword').value,
+            phone: document.getElementById('newPhone').value || null,
+            specialization: document.getElementById('trainerSpecialization').value,
+            bio: document.getElementById('trainerBio').value || null,
+            photoUrl: document.getElementById('trainerPhotoUrl').value || null
+        };
+    } else {
+        body = {
+            name: document.getElementById('newName').value,
+            email: document.getElementById('newEmail').value,
+            password: document.getElementById('newPassword').value,
+            phone: document.getElementById('newPhone').value || null,
+            role: role
+        };
+    }
+
+    const endpoint = role === 'Trainer'
+        ? '/Trainers'
+        : '/Auth/register';
+
+    const res = await apiPost(endpoint, body);
+
+    if (res.ok) {
+        alert(
+            role === 'Trainer'
+                ? 'Тренер создан'
+                : 'Пользователь создан'
+        );
+
+        document.getElementById('createUserForm').reset();
+        trainerFields.style.display = 'none';
+
+        loadUsers('');
+        loadClientsForSelect();
+    } else {
+        const err = await res.json().catch(() => ({}));
+        alert(err.message || 'Не удалось создать пользователя');
+    }
+});
 
         // ===== Абонементы =====
         async function loadSubscriptions() {

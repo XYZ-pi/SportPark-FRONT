@@ -253,14 +253,19 @@
         }
 
         async function apiGet(path) {
-            const res = await fetch(`${API_BASE}${path}`, { headers: authHeaders() });
-            if (res.status === 401) {
-                localStorage.removeItem('token');
-                window.location.href = 'login.html';
-                return null;
-            }
-            return res.ok ? res.json() : null;
-        }
+    const res = await fetch(`${API_BASE}${path}`, { headers: authHeaders() });
+    if (res.status === 401) {
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+        return null;
+    }
+    if (!res.ok) {
+        const text = await res.text().catch(() => '');
+        console.error(`GET ${path} вернул ${res.status}:`, text);
+        return null;
+    }
+    return res.json();
+}
 
         async function apiPost(path, body) {
             const res = await fetch(`${API_BASE}${path}`, {
@@ -385,49 +390,73 @@
 
         function renderDay(dayNum) {
     const container = document.getElementById('bookableClasses');
-    const dayClasses = allClassSessions.filter(cs => cs.dayOfWeek === dayNum && cs.audienceType === currentAudience);
 
-            if (dayClasses.length === 0) {
-                container.innerHTML = '<p class="empty-text">На этот день занятий нет.</p>';
-                return;
+    const dayNames = {
+        0: 'Sunday',
+        1: 'Monday',
+        2: 'Tuesday',
+        3: 'Wednesday',
+        4: 'Thursday',
+        5: 'Friday',
+        6: 'Saturday'
+    };
+
+    const audienceType = currentAudience;
+
+    const dayClasses = allClassSessions.filter(
+        cs => cs.dayOfWeek === dayNames[dayNum] &&
+              cs.audienceType === audienceType
+    );
+
+    if (dayClasses.length === 0) {
+        container.innerHTML = '<p class="empty-text">На этот день занятий нет.</p>';
+        return;
+    }
+
+    container.innerHTML = '';
+
+    const list = document.createElement('ul');
+    list.className = 'class-list';
+
+    dayClasses.forEach(cs => {
+        const alreadyBooked = myBookedSessionIds.includes(cs.id);
+
+        const li = document.createElement('li');
+
+        li.innerHTML = `
+            <span class="class-time">${cs.startTime}</span>
+            <span class="class-name">${cs.serviceName} — ${cs.trainerName}</span>
+            <span class="class-hall">${cs.hall}</span>
+            <button class="book-btn" data-id="${cs.id}" ${alreadyBooked ? 'disabled' : ''}>
+                ${alreadyBooked ? 'Вы записаны' : 'Записаться'}
+            </button>
+        `;
+
+        list.appendChild(li);
+    });
+
+    container.appendChild(list);
+
+    container.querySelectorAll('.book-btn:not([disabled])').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const id = parseInt(btn.dataset.id);
+
+            const res = await apiPost('/Bookings', {
+                classSessionId: id
+            });
+
+            if (res.ok) {
+                alert('Вы успешно записаны!');
+                loadMyBookings();
+                loadSubscriptions();
+                loadBookableClasses();
+            } else {
+                const err = await res.json().catch(() => ({}));
+                alert(err.message || 'Не удалось записаться');
             }
-
-            container.innerHTML = '';
-            const list = document.createElement('ul');
-            list.className = 'class-list';
-
-            dayClasses.forEach(cs => {
-                const alreadyBooked = myBookedSessionIds.includes(cs.id);
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <span class="class-time">${cs.startTime}</span>
-                    <span class="class-name">${cs.serviceName} — ${cs.trainerName}</span>
-                    <span class="class-hall">${cs.hall}</span>
-                    <button class="book-btn" data-id="${cs.id}" ${alreadyBooked ? 'disabled' : ''}>
-                        ${alreadyBooked ? 'Вы записаны' : 'Записаться'}
-                    </button>
-                `;
-                list.appendChild(li);
-            });
-
-            container.appendChild(list);
-
-            container.querySelectorAll('.book-btn:not([disabled])').forEach(btn => {
-                btn.addEventListener('click', async () => {
-                    const id = parseInt(btn.dataset.id);
-                    const res = await apiPost('/Bookings', { classSessionId: id });
-                    if (res.ok) {
-                        alert('Вы успешно записаны!');
-                        loadMyBookings();
-                        loadSubscriptions();
-                        loadBookableClasses();
-                    } else {
-                        const err = await res.json().catch(() => ({}));
-                        alert(err.message || 'Не удалось записаться');
-                    }
-                });
-            });
-        }
+        });
+    });
+}
 
         document.querySelectorAll('.day-tab').forEach(tab => {
             tab.addEventListener('click', () => {
